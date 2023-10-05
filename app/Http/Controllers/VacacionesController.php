@@ -11,7 +11,7 @@ class VacacionesController extends Controller
     public function index()
     {
         $vacaciones=vacaciones::all();
-        return view('vacacionesIndex', compact('vacaciones'));
+        return view('vacacionesindex', compact('vacaciones'));
     }
 
     public function create()

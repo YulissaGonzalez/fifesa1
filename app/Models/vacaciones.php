@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class vacaciones extends Model
 {
     use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(empleados::class, 'empleados_id', 'id');
+    }
 }
