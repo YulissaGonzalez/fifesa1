@@ -22,7 +22,7 @@ class VacacionesController extends Controller
     public function store(Request $request)
     {
          //return $request->all();
-         $vacaciones = new empleados();
+         $vacaciones = new vacaciones();
          $vacaciones -> empleados_id = $request -> input('empleados_id');
          $vacaciones -> cargo = $request -> input('cargo');
          $vacaciones -> fecha_ingreso = $request -> input('fecha_ingreso');
