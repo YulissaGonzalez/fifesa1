@@ -6,12 +6,13 @@
     @csrf
     <div class="form-group">
         <label for="">Id del Empleado:</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="empleados_id" class="form-control">
         <label for="">Monto Diario:</label>
-        <input type="text" name="apellido" class="form-control">
+        <input type="text" name="monto_diario" class="form-control">
         <label for="">Días Trancurridos a la Fecha:</label>
-        <input type="text" name="apellido" class="form-control">
+        <input type="text" name="dias_a_la_fecha" class="form-control">
         <label for="">Total del Finiquito:</label>
+        <input type="text" name="total_finiquito" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary">

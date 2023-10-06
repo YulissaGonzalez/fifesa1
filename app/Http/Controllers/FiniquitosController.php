@@ -11,7 +11,7 @@ class FiniquitosController extends Controller
     public function index()
     {
         $finiquitos=finiquitos::all();
-        return view('finiquitosIndex', compact('finiquitos'));
+        return view('finiquitosindex', compact('finiquitos'));
     }
 
     public function create()
@@ -21,7 +21,14 @@ class FiniquitosController extends Controller
 
     public function store(Request $request)
     {
-        
+         //return $request->all();
+         $finiquitos = new finiquitos();
+         $finiquitos -> empleados_id = $request -> input('empleados_id');
+         $finiquitos -> monto_diario = $request -> input('monto_diario');
+         $finiquitos -> dias_a_la_fecha = $request -> input('dias_a_la_fecha');
+         $finiquitos -> total_finiquito = $request -> input('total_finiquito');
+         $finiquitos -> save();
+         return view('finiquitosindex');
     }
 
     public function show($id)
