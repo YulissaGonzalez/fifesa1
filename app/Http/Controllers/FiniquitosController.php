@@ -28,7 +28,7 @@ class FiniquitosController extends Controller
          $finiquitos -> dias_a_la_fecha = $request -> input('dias_a_la_fecha');
          $finiquitos -> total_finiquito = $request -> input('total_finiquito');
          $finiquitos -> save();
-         return view('finiquitosindex');
+         return redirect()->route('finiquitos.index');
     }
 
     public function show($id)

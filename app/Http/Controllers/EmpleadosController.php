@@ -33,7 +33,7 @@ class EmpleadosController extends Controller
         $empleados -> fecha_ingreso = $request -> input('fecha_ingreso');
         $empleados -> users_id = $request -> input('users_id');
         $empleados -> save();
-        return view('empleadosindex');
+        return redirect()->route('empleados.index');
     }
 
     public function show($id)

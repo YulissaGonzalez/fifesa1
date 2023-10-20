@@ -31,7 +31,7 @@ class VacacionesController extends Controller
          $vacaciones -> regreso_vacaciones = $request -> input('regreso_vacaciones');
          $vacaciones -> dias_vacaciones = $request -> input('dias_vacaciones');
          $vacaciones -> save();
-         return view('vacacionesindex');
+         return redirect()->route('vacaciones.index');
     }
 
     public function show($id)
