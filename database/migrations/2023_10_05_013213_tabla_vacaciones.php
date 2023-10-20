@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('empleados_id');
             $table->string('cargo');
             $table->date('fecha_ingreso');
-            $table->decimal('pago_vacacional', 4, 2);
+            $table->decimal('pago_vacacional', 8, 2);
             $table->date('inicio_vacaciones');
             $table->date('regreso_vacaciones');
             $table->integer('dias_vacaciones');

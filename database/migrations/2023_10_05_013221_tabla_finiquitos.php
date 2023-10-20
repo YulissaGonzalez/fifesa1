@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('finiquitos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('empleados_id');
-            $table->decimal('monto_diario', 4, 2);
+            $table->decimal('monto_diario', 8, 2);
             $table->integer('dias_a_la_fecha');
-            $table->decimal('total_finiquito', 4, 2);
+            $table->decimal('total_finiquito', 8, 2);
             $table->timestamps();
 
             $table->foreign('empleados_id')->references('id')->on('empleados')->onDelete('NO ACTION')->onUpdate('NO ACTION');
