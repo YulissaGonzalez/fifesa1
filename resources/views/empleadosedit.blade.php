@@ -17,19 +17,19 @@
             <label for="nss" class="form-label">NSS:</label>
             <input type="text" name="nss" value="{{ $empleado->nss }}" class="form-control">
 
-            <label for="nss" class="form-label">RFC:</label>
+            <label for="rfc" class="form-label">RFC:</label>
             <input type="text" name="rfc" value="{{ $empleado->rfc }}" class="form-control">
 
-            <label for="nss" class="form-label">CURP:</label>
+            <label for="curp" class="form-label">CURP:</label>
             <input type="text" name="curp" value="{{ $empleado->curp }}" class="form-control">
 
-            <label for="nss" class="form-label">SALARIO SUELDO BASE:</label>
+            <label for="salario_sueldo_base" class="form-label">SALARIO SUELDO BASE:</label>
             <input type="text" name="salario_sueldo_base" value="{{ $empleado->salario_sueldo_base }}" class="form-control">
 
-            <label for="nss" class="form-label">MOVIMIENTO:</label>
+            <label for="movimiento" class="form-label">MOVIMIENTO:</label>
             <input type="text" name="movimiento" value="{{ $empleado->movimiento }}" class="form-control">
 
-            <label for="nss" class="form-label">FECHA DE INGRESO:</label>
+            <label for="fecha_ingreso" class="form-label">FECHA DE INGRESO:</label>
             <input type="text" name="fecha_ingreso" value="{{ $empleado->fecha_ingreso }}" class="form-control">
 
         </div>

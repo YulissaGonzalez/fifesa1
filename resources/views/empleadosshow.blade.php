@@ -5,7 +5,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ $empleado->nombre_empleado }}</h5>
         <p class="card-text">ID: {{$empleado->id}}</p>
-        <p class="card-text">Puesto: {{$empleado->puesto}}</p>
+        <p class="card-text">PUESTO: {{$empleado->puesto}}</p>
         <p class="card-text">NSS: {{$empleado->nss}}</p>
         <p class="card-text">RFC: {{$empleado->rfc}}</p>
         <p class="card-text">SALARIO SUELDO BASE: ${{$empleado->salario_sueldo_base}}</p>

@@ -11,7 +11,12 @@
     <div class="card-body">
       <h5 class="card-title">{{$finiquitos ->empleados_id}}</h5>
       <p class="card-text"> </p>
-      <a href="#" class="btn btn-primary">VER MAS...</a>
+      <a href="/finiquitos/{{$finiquitos->id}}" class="btn btn-secondary">MOSTRAR</a>
+      <a href="/finiquitos/{{$finiquitos->id}}/editfiniquito" class="btn btn-secondary">EDITAR</a>
+      <br>
+      <br>
+      <a href="/delete/{{$finiquitos->id}}" class="btn btn-secondary">ELIMINAR</a>
+
     </div>
   </div>
     </div>

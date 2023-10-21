@@ -31,23 +31,57 @@ class FiniquitosController extends Controller
          return redirect()->route('finiquitos.index');
     }
 
-    public function show($id)
+    public function show(finiquitos $finiquito)
     {
-        // Lógica para mostrar un registro específico del modelo en la vista
+        return view('finiquitosshow', compact('finiquito'));
     }
 
     public function edit($id)
     {
-        // Lógica para mostrar el formulario de edición
+        $finiquito = finiquitos::find($id);
+        return view('finiquitosedit', compact('finiquito'));
     }
 
     public function update(Request $request, $id)
     {
-        // Lógica para actualizar un registro específico en la base de datos
+        // Validación de datos
+        $request->validate([
+            'empleados_id' => 'required',
+            'monto_diario' => 'required',
+            'dias_a_la_fecha' => 'required',
+            'total_finiquito' => 'required',
+    ]);
+
+    // Obtener el empleado a actualizar
+    $finiquito = finiquitos::find($id);
+
+    if (!$finiquito) {
+        // Manejar el caso en que el empleado no se encuentra
+        return redirect()->route('finquitos.index')->with('error', 'Finiquito not found');
     }
 
-    public function destroy($id)
+    // Actualizar los datos del empleado
+        $finiquito -> empleados_id = $request -> input('empleados_id');
+        $finiquito -> monto_diario = $request -> input('monto_diario');
+        $finiquito -> dias_a_la_fecha = $request -> input('dias_a_la_fecha');
+        $finiquito -> total_finiquito = $request -> input('total_finiquito');
+        
+        $finiquito->save();
+
+    return redirect()->route('finiquitos.index')->with('success', 'Finiquito updated successfully');
+    }
+
+    public function destroy(string $id)
     {
-        // Lógica para eliminar un registro específico de la base de datos
+        $finiquito = finiquitos::find($id);
+
+        if (!$finiquito) {
+            return redirect('/finiquitos')->with('error', 'El finiquito no existe o ya ha sido eliminado');
+        }
+
+        $finiquito->delete();
+
+        return redirect('/finiquitos')->with('success', 'Finiquito eliminado exitosamente');
+
     }
 }
