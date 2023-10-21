@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('empleados/create',[EmpleadosController::class, 'create']);
 Route::resource('empleados',EmpleadosController::class);
-
+Route::get('delete/{id}',[empleados::class, 'destroy']);
 
 
 

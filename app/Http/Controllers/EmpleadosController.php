@@ -38,7 +38,7 @@ class EmpleadosController extends Controller
 
     public function show(empleados $empleado)
     {
-        $empleado = empleados::find($id);
+       
         return view('empleadosshow', compact('empleado'));
     }
 
@@ -57,11 +57,11 @@ class EmpleadosController extends Controller
         $empleado = Blouses::find($id);
 
         if (!$empleado) {
-            return redirect('/empleados')->with('error', 'La blusa no existe o ya ha sido eliminada');
+            return redirect('/empleados')->with('error', 'El empleado no existe o ya ha sido eliminada');
         }
 
         $empleado->delete();
 
-        return redirect('/empleados')->with('success', 'Blusa eliminada exitosamente');
+        return redirect('/empleados')->with('success', 'Empleado eliminada exitosamente');
     }
 }
