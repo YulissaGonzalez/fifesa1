@@ -3,7 +3,7 @@
 @section ('content')
 @csrf
 
-<p> LISTADO DE EMPLEADOS</p>
+<center><h1><p> LISTADO DE EMPLEADOS</p></h1></center>
 <div class="row">
 @foreach ($empleados as $empleados)
 <div class="col-sm">

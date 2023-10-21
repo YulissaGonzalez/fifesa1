@@ -36,21 +36,62 @@ class VacacionesController extends Controller
 
     public function show($id)
     {
-        // Lógica para mostrar un registro específico del modelo en la vista
+        $vacacion = vacaciones::find($id); 
+        return view('vacacionesshow', compact('vacacion'));
     }
 
     public function edit($id)
     {
-        // Lógica para mostrar el formulario de edición
+        $vacacion = vacaciones::find($id);
+        return view('vacacionesedit', compact('vacacion'));
     }
 
     public function update(Request $request, $id)
     {
-        // Lógica para actualizar un registro específico en la base de datos
+        // Validación de datos
+        $request->validate([
+            'empleados_id' => 'required',
+            'cargo' => 'required',
+            'pago_vacacional' => 'required',
+            'inicio_vacaciones' => 'required',
+            'regreso_vacaciones' => 'required',
+            'dias_vacaciones' => 'required',
+
+        ]);
+
+    // Obtener el empleado a actualizar
+    $vacacion = vacaciones::find($id);
+
+    if (!$vacacion) {
+        // Manejar el caso en que el empleado no se encuentra
+        return redirect()->route('vacaciones.index')->with('error', 'Vacacion not found');
     }
 
-    public function destroy($id)
+    // Actualizar los datos del empleado
+    $vacacion -> empleados_id = $request -> input('empleados_id');
+    $vacacion  -> cargo = $request -> input('cargo');
+    $vacacion  -> fecha_ingreso = $request -> input('fecha_ingreso');
+    $vacacion  -> pago_vacacional = $request -> input('pago_vacacional');
+    $vacacion  -> inicio_vacaciones = $request -> input('inicio_vacaciones');
+    $vacacion  -> regreso_vacaciones = $request -> input('regreso_vacaciones');
+    $vacacion  -> dias_vacaciones = $request -> input('dias_vacaciones');
+        
+        $vacacion->save();
+
+    return redirect()->route('vacaciones.index')->with('success', 'Vacacion updated successfully');
+    }
+
+    public function destroy(string $id)
     {
-        // Lógica para eliminar un registro específico de la base de datos
+        $vacacion = vacaciones::find($id);
+
+        if (!$vacacion) {
+            return redirect('/vacaciones')->with('error', 'La vacacion no existe o ya ha sido eliminada');
+        }
+
+        $vacacion->delete();
+
+        return redirect('/vacaciones')->with('success', 'Vacacion eliminado exitosamente');
+
     }
 }
