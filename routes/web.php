@@ -27,7 +27,7 @@ Route::get('/empleados/{id}/editempleado', [EmpleadosController::class, 'edit'])
 
 Route::get('vacaciones/create',[VacacionesController::class, 'create']);
 Route::resource('vacaciones',VacacionesController::class);
-Route::get('delete/{id}',[VacacionesController::class, 'destroy']);
+Route::post('vacaciones/delete/{id}', [VacacionesController::class, 'destroy']);
 Route::get('/vacaciones/{id}/editvacacion', [VacacionesController::class, 'edit'])->name('vacaciones.edit');
 
 Route::get('finiquitos/create',[FiniquitosController::class, 'create']);

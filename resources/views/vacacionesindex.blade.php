@@ -16,7 +16,10 @@
       <a href="/vacaciones/{{$vacaciones->id}}/editvacacion" class="btn btn-secondary">EDITAR</a>
       <br>
       <br>
-      <a href="/delete/{{$vacaciones->id}}" class="btn btn-secondary">ELIMINAR</a>
+      <form method="POST" action="{{ url('vacaciones/delete', ['id' => $vacaciones->id]) }}">
+        @csrf
+        <button type="submit" class="btn btn-danger">ELIMINAR</button>
+    </form>
     </div>
   </div>
 </div>
