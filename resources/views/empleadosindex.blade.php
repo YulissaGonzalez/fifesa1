@@ -9,9 +9,9 @@
 <div class="col-sm">
     <div class="card text-center" style="width: 18rem; margin-top: 70px;">
     <div class="card-body">
-      <h5 class="card-title">{{$empleados ->nombre_empleado}}</h5>
-      <p class="card-text"> </p>
-      <a href="#" class="btn btn-primary">VER MAS...</a>
+      <h5 class="card-title">{{ $empleados->nombre_empleado }}</h5>
+      <a href="/empleados/{{$empleados->nombre_empleado}}" class="btn btn-secondary">MOSTRAR</a>
+      <a href="/empleados/{{$empleados->nombre_empleado}}/edit" class="btn btn-secondary">EDITAR</a>
     </div>
   </div>
     </div>

@@ -36,23 +36,32 @@ class EmpleadosController extends Controller
         return redirect()->route('empleados.index');
     }
 
-    public function show($id)
+    public function show(empleados $empleado)
     {
-        // Lógica para mostrar un registro específico del modelo en la vista
+        $empleado = empleados::find($id);
+        return view('empleadosshow', compact('empleado'));
     }
 
-    public function edit($id)
+    public function edit(empleados $empleados)
     {
-        // Lógica para mostrar el formulario de edición
+        return view('empleadosedit', compact('empleados'));
     }
 
     public function update(Request $request, $id)
     {
-        // Lógica para actualizar un registro específico en la base de datos
+     
     }
 
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        // Lógica para eliminar un registro específico de la base de datos
+        $empleado = Blouses::find($id);
+
+        if (!$empleado) {
+            return redirect('/empleados')->with('error', 'La blusa no existe o ya ha sido eliminada');
+        }
+
+        $empleado->delete();
+
+        return redirect('/empleados')->with('success', 'Blusa eliminada exitosamente');
     }
 }
