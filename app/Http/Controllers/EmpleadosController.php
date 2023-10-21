@@ -42,14 +42,47 @@ class EmpleadosController extends Controller
         return view('empleadosshow', compact('empleado'));
     }
 
-    public function edit(empleados $empleados)
+    public function edit($id)
     {
-        
+        $empleado = empleados::find($id);
+        return view('empleadosedit', compact('empleado'));
     }
 
     public function update(Request $request, $id)
     {
-     
+        // Validación de datos
+        $request->validate([
+            'nombre_empleado' => 'required',
+            'puesto' => 'required',
+            'nss' => 'required',
+            'rfc' => 'required',
+            'curp' => 'required',
+            'salario_sueldo_base' => 'required|numeric',
+            'movimiento' => 'required',
+            'fecha_ingreso' => 'required',
+    ]);
+
+    // Obtener el empleado a actualizar
+    $empleado = empleados::find($id);
+
+    if (!$empleado) {
+        // Manejar el caso en que el empleado no se encuentra
+        return redirect()->route('empleados.index')->with('error', 'Empleado not found');
+    }
+
+    // Actualizar los datos del empleado
+        $empleado -> nombre_empleado = $request -> input('nombre_empleado');
+        $empleado -> puesto = $request -> input('puesto');
+        $empleado -> nss = $request -> input('nss');
+        $empleado -> rfc = $request -> input('rfc');
+        $empleado -> curp = $request -> input('curp');
+        $empleado -> salario_sueldo_base = $request -> input('salario_sueldo_base');
+        $empleado -> movimiento = $request -> input('movimiento');
+        $empleado -> fecha_ingreso = $request -> input('fecha_ingreso');
+
+        $empleado->save();
+
+    return redirect()->route('empleados.index')->with('success', 'Empleado updated successfully');
     }
 
     public function destroy(string $id)
