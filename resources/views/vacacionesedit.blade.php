@@ -31,7 +31,7 @@
 
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">GUARDAR CAMBIOS</button>
+            <button type="submit" class="btn btn-secondary">GUARDAR CAMBIOS</button>
         </div>
     </form>
 </div>
