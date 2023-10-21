@@ -2,30 +2,47 @@
 @extends('layouts.app')
 @section('title','Empleados Create')
 @section('content')
-<form class="form-group" method="POST" action="/empleados" >
-    @csrf
-    <div class="form-group">
-        <label for="">Nombre del empleado:</label>
-        <input type="text" name="nombre_empleado" class="form-control">
-        <label for="">Puesto:</label>
-        <input type="text" name="puesto" class="form-control">
-        <label for="">NSS:</label>
-        <input type="text" name="nss" class="form-control">
-        <label for="">RFC:</label>
-        <input type="text" name="rfc" class="form-control">
-        <label for="">CURP:</label>
-        <input type="text" name="curp" class="form-control">
-        <label for="">Salario sueldo base:</label>
-        <input type="text" name="salario_sueldo_base" class="form-control">
-        <label for="">Movimiento:</label>
-        <input type="text" name="movimiento" class="form-control">
-        <label for="">Fecha de Ingreso:</label>
-        <input type="text" name="fecha_ingreso" class="form-control">
-        <label for="">Usuario:</label>
-        <input type="text" name="users_id" class="form-control">
-    </div>
-
-    <button type="submit" class="btn btn-primary">
-        GUARDAR</button>
+<div class="container">
+    <h1 class="text-center mt-5">Agregar Empleado</h1>
+    <form class="mt-4" method="POST" action="/empleados">
+        @csrf
+        <div class="mb-3">
+            <label for="nombre_empleado" class="form-label">Nombre del empleado:</label>
+            <input type="text" id="nombre_empleado" name="nombre_empleado" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="puesto" class="form-label">Puesto:</label>
+            <input type="text" id="puesto" name="puesto" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="nss" class="form-label">NSS:</label>
+            <input type="text" id="nss" name="nss" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="rfc" class="form-label">RFC:</label>
+            <input type="text" id="rfc" name="rfc" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="curp" class="form-label">CURP:</label>
+            <input type="text" id="curp" name="curp" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="salario_sueldo_base" class="form-label">Salario sueldo base:</label>
+            <input type="text" id="salario_sueldo_base" name="salario_sueldo_base" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="movimiento" class="form-label">Movimiento:</label>
+            <input type="text" id="movimiento" name="movimiento" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="fecha_ingreso" class="form-label">Fecha de Ingreso:</label>
+            <input type="text" id="fecha_ingreso" name="fecha_ingreso" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="users_id" class="form-label">Usuario:</label>
+            <input type="text" id="users_id" name="users_id" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">GUARDAR</button>
     </form>
+</div>
 @endsection
