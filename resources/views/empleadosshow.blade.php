@@ -12,7 +12,7 @@
         <p class="card-text">MOVIMIENTO: {{$empleado->movimiento}}</p>
         <p class="card-text">FECHA DE INGRESO: {{$empleado->fecha_ingreso}}</p>
         <p class="card-text">USUARIO QUE REGISTRÓ: {{$empleado->users_id}}</p>
-        <a href="/empleados/{{$empleado->id}}" class="btn btn-primary">VOLVER</a>
+        <a href="/empleados/" class="btn btn-secondary">ATRAS</a>
     </div>
 </div>
 @endsection

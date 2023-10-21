@@ -44,7 +44,7 @@ class EmpleadosController extends Controller
 
     public function edit(empleados $empleados)
     {
-        return view('empleadosedit', compact('empleados'));
+        
     }
 
     public function update(Request $request, $id)
@@ -54,14 +54,6 @@ class EmpleadosController extends Controller
 
     public function destroy(string $id)
     {
-        $empleado = Blouses::find($id);
-
-        if (!$empleado) {
-            return redirect('/empleados')->with('error', 'El empleado no existe o ya ha sido eliminada');
-        }
-
-        $empleado->delete();
-
-        return redirect('/empleados')->with('success', 'Empleado eliminada exitosamente');
+        
     }
 }
