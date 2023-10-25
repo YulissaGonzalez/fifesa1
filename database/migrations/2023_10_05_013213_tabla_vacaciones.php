@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('vacaciones', function (Blueprint $table) {
@@ -25,10 +22,6 @@ return new class extends Migration
             $table->foreign('empleados_id')->references('id')->on('empleados')->onDelete('NO ACTION')->onUpdate('NO ACTION');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('vacaciones');

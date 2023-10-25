@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <h1 class="text-center">FIFESA MANTENIMIENTO</h1>
-    <h4 class="text-center">Página de Inicio</h4>
     <br>
     <br>
     <div class="text-center">
