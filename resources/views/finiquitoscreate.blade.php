@@ -4,10 +4,12 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center">Agregar Finiquitos</h1>
-    <form class="mt-4" method="POST" action="/finiquitos">
-        @include('finiquitosform') 
-        <button type="submit" class="btn btn-primary">GUARDAR</button>
-    </form>
+    {!! Form::open(['url' => '/finiquitos', 'method' => 'POST', 'class' => 'mt-4']) !!}
+    @csrf
+    @include('finiquitosform')
+    {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
+    {!! Form::close() !!}
 </div>
 @endsection
+
 

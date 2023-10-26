@@ -4,13 +4,14 @@
 @section('content')
 <div class="container">
     <h2>Editar Finiquito</h2>
-    <form method="POST" action="{{ route('finiquitos.update', $finiquito->id) }}" enctype="multipart/form-data">
-        @method('PUT')
-        @include('finiquitosform') 
-        <div class="text-center">
-            <button type="submit" class="btn btn-secondary">GUARDAR CAMBIOS</button>
-        </div>
-    </form>
+    {!! Form::model($finiquito, ['url' => route('finiquitos.update', $finiquito->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+    @csrf
+    @include('finiquitosform')
+    <div class="text-center">
+        {!! Form::submit('GUARDAR CAMBIOS', ['class' => 'btn btn-secondary']) !!}
+    </div>
+    {!! Form::close() !!}
 </div>
 @endsection
+
 

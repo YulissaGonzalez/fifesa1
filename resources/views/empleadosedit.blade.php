@@ -6,13 +6,11 @@
 @section('content')
 <div class="container">
     <h2>Editar Empleado</h2>
-    <form method="POST" action="{{ route('empleados.update', $empleado->id) }}" enctype="multipart/form-data">
-        @method('PUT')
-        @csrf
-        @include('EmpleadosForm')
-        <div class="text-center">
-            <button type="submit" class="btn btn-secondary">GUARDAR CAMBIOS</button>
-        </div>
-    </form>
+    {!! Form::model($empleado, ['url' => route('empleados.update', $empleado->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+    @include('empleadosForm')
+    <div class="text-center">
+        {!! Form::submit('GUARDAR CAMBIOS', ['class' => 'btn btn-secondary']) !!}
+    </div>
+    {!! Form::close() !!}
 </div>
 @endsection

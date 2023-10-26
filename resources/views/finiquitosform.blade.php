@@ -1,17 +1,18 @@
 @csrf
 <div class="mb-3">
-    <label for="empleados_id" class="form-label">ID del Empleado:</label>
-    <input type="text" name="empleados_id" value="{{ old('empleados_id') }}" class="form-control">
+    {!! Form::label('empleados_id', 'ID del Empleado:', ['class' => 'form-label']) !!}
+    {!! Form::text('empleados_id', old('empleados_id'), ['class' => 'form-control']) !!}
 </div>
 <div class="mb-3">
-    <label for="monto_diario" class="form-label">Monto Diario:</label>
-    <input type="text" name="monto_diario" value="{{ old('monto_diario') }}" class="form-control">
+    {!! Form::label('monto_diario', 'Monto Diario:', ['class' => 'form-label']) !!}
+    {!! Form::text('monto_diario', old('monto_diario'), ['class' => 'form-control']) !!}
 </div>
 <div class="mb-3">
-    <label for="dias_a_la_fecha" class="form-label">Días Transcurridos a la Fecha:</label>
-    <input type="text" name="dias_a_la_fecha" value="{{ old('dias_a_la_fecha') }}" class="form-control">
+    {!! Form::label('dias_a_la_fecha', 'Días Transcurridos a la Fecha:', ['class' => 'form-label']) !!}
+    {!! Form::text('dias_a_la_fecha', old('dias_a_la_fecha'), ['class' => 'form-control']) !!}
 </div>
 <div class="mb-3">
-    <label for="total_finiquito" class="form-label">Total del Finiquito:</label>
-    <input type="text" name="total_finiquito" value="{{ old('total_finiquito') }}" class="form-control">
+    {!! Form::label('total_finiquito', 'Total del Finiquito:', ['class' => 'form-label']) !!}
+    {!! Form::text('total_finiquito', old('total_finiquito'), ['class' => 'form-control']) !!}
 </div>
+

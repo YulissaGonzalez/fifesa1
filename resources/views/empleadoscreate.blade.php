@@ -6,10 +6,11 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mt-5">Agregar Empleado</h1>
-    <form class="mt-4" method="POST" action="{{ route('empleados.store') }}">
-        @csrf
-        @include('EmpleadosForm')
-        <button type="submit" class="btn btn-success">GUARDAR</button>
-    </form>
+    {!! Form::open(['url' => route('empleados.store'), 'method' => 'POST', 'class' => 'mt-4']) !!}
+    {!! Form::token() !!}
+    @include('empleadosForm')
+    {!! Form::submit('GUARDAR', ['class' => 'btn btn-success']) !!}
+    {!! Form::close() !!}
 </div>
 @endsection
+

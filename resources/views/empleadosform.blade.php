@@ -1,36 +1,44 @@
 <div class="mb-3">
-    <label for="nombre_empleado" class="form-label">Nombre del empleado:</label>
-    <input type="text" id="nombre_empleado" name="nombre_empleado" class="form-control" value="{{ $empleado->nombre_empleado ?? old('nombre_empleado') }}">
+    {!! Form::label('nombre_empleado', 'Nombre del empleado:', ['class' => 'form-label']) !!}
+    {!! Form::text('nombre_empleado', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="puesto" class="form-label">Puesto:</label>
-    <input type="text" id="puesto" name="puesto" class="form-control" value="{{ $empleado->puesto ?? old('puesto') }}">
+    {!! Form::label('puesto', 'Puesto:', ['class' => 'form-label']) !!}
+    {!! Form::text('puesto', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="nss" class="form-label">NSS:</label>
-    <input type="text" id="nss" name="nss" class="form-control" value="{{ $empleado->nss ?? old('nss') }}">
+    {!! Form::label('nss', 'NSS:', ['class' => 'form-label']) !!}
+    {!! Form::text('nss', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="rfc" class="form-label">RFC:</label>
-    <input type="text" id="rfc" name="rfc" class="form-control" value="{{ $empleado->rfc ?? old('rfc') }}">
+    {!! Form::label('rfc', 'RFC:', ['class' => 'form-label']) !!}
+    {!! Form::text('rfc', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="curp" class="form-label">CURP:</label>
-    <input type="text" id="curp" name="curp" class="form-control" value="{{ $empleado->curp ?? old('curp') }}">
+    {!! Form::label('curp', 'CURP:', ['class' => 'form-label']) !!}
+    {!! Form::text('curp', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="salario_sueldo_base" class="form-label">Salario sueldo base:</label>
-    <input type="text" id="salario_sueldo_base" name="salario_sueldo_base" class="form-control" value="{{ $empleado->salario_sueldo_base ?? old('salario_sueldo_base') }}">
+    {!! Form::label('salario_sueldo_base', 'Salario sueldo base:', ['class' => 'form-label']) !!}
+    {!! Form::text('salario_sueldo_base', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="movimiento" class="form-label">Movimiento:</label>
-    <input type="text" id="movimiento" name="movimiento" class="form-control" value="{{ $empleado->movimiento ?? old('movimiento') }}">
+    {!! Form::label('movimiento', 'Movimiento:', ['class' => 'form-label']) !!}
+    {!! Form::text('movimiento', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="fecha_ingreso" class="form-label">Fecha de Ingreso:</label>
-    <input type="text" id="fecha_ingreso" name="fecha_ingreso" class="form-control" value="{{ $empleado->fecha_ingreso ?? old('fecha_ingreso') }}">
+    {!! Form::label('fecha_ingreso', 'Fecha de Ingreso:', ['class' => 'form-label']) !!}
+    {!! Form::text('fecha_ingreso', null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="mb-3">
-    <label for="users_id" class="form-label">Usuario:</label>
-    <input type="text" id="users_id" name="users_id" class="form-control" value="{{ $empleado->users_id ?? old('users_id') }}">
+    {!! Form::label('users_id', 'Usuario:', ['class' => 'form-label']) !!}
+    {!! Form::text('users_id', null, ['class' => 'form-control']) !!}
 </div>
