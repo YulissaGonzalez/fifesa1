@@ -16,7 +16,7 @@
       <a href="/finiquitos/{{$finiquitos->id}}/editfiniquito" class="btn btn-secondary">EDITAR</a>
       <br>
       <br>
-      <a href="/delete/{{$finiquitos->id}}" class="btn btn-secondary">ELIMINAR</a>
+      <a href="/delete/{{$finiquitos->id}}" class="btn btn-danger">ELIMINAR</a>
 
     </div>
   </div>
