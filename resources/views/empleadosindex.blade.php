@@ -3,9 +3,11 @@
 @section ('content')
 @csrf
 
-<a href="{{ route('home') }}" class="btn btn-success">Página de Inicio</a>
 <center><h1><p> LISTADO DE EMPLEADOS</p></h1></center> 
-<a href="{{ route('listado.pdf') }}" class="btn btn-primary">PDF</a>
+
+<div class="d-flex align-items-center justify-content-center">
+  <a href="{{ route('listado.pdf') }}" class="btn btn-success ml-4">Descargar PDF</a>
+</div>
 
 <div class="row">
 @foreach ($empleados as $empleados)

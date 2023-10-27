@@ -3,7 +3,6 @@
 @section ('content')
 @csrf
 
-<a href="{{ route('home') }}" class="btn btn-success">Página de Inicio</a>
 <center><h1><p> LISTADO DE FINIQUITOS</p></h1></center>
 <div class="row">
 @foreach ($finiquitos as $finiquitos)
