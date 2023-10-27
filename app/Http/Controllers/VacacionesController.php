@@ -10,7 +10,7 @@ class VacacionesController extends Controller
 {
     public function index()
     {
-        $vacaciones=vacaciones::all();
+        $vacaciones=vacaciones::with('empleado')->get();
         return view('vacacionesindex', compact('vacaciones'));
     }
 

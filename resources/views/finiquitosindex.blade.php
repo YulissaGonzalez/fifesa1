@@ -10,7 +10,7 @@
 <div class="col-sm">
     <div class="card text-center" style="width: 18rem; margin-top: 70px;">
     <div class="card-body">
-      <h2 class="card-title">{{$finiquitos ->empleados_id}}</h2>
+      <h5 class="card-title">{{$finiquitos ->empleado->nombre_empleado}}</h5>
       <p class="card-text"> </p>
       <a href="/finiquitos/{{$finiquitos->id}}" class="btn btn-secondary">MOSTRAR</a>
       <a href="/finiquitos/{{$finiquitos->id}}/editfiniquito" class="btn btn-secondary">EDITAR</a>

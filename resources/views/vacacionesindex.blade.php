@@ -10,7 +10,7 @@
 <div class="col-sm">
     <div class="card text-center" style="width: 18rem; margin-top: 70px;">
     <div class="card-body">
-      <h2 class="card-title">{{$vacaciones ->empleados_id}}</h2>
+      <h5 class="card-title">{{$vacaciones ->empleado->nombre_empleado}}</h5>
       <p class="card-text"> </p>
       <a href="/vacaciones/{{$vacaciones->id}}" class="btn btn-secondary">MOSTRAR</a>
       <a href="/vacaciones/{{$vacaciones->id}}/editvacacion" class="btn btn-secondary">EDITAR</a>

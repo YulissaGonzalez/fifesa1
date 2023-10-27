@@ -10,7 +10,7 @@ class FiniquitosController extends Controller
 {
     public function index()
     {
-        $finiquitos=finiquitos::all();
+        $finiquitos=finiquitos::with('empleado')->get();
         return view('finiquitosindex', compact('finiquitos'));
     }
 

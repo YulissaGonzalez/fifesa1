@@ -3,7 +3,7 @@
 @section('content')
 <div class="card text-center" style="width: 18rem; margin-top: 70px;">
     <div class="card-body">
-        <h2 class="card-title">{{ $vacacion->empleados_id }}</h2>
+        <h4 class="card-title">{{ $vacacion->empleado->nombre_empleado }}</h4>
         <p class="card-text">CARGO: {{$vacacion->cargo}}</p>
         <p class="card-text">FECHA DE INGRESO: {{$vacacion->fecha_ingreso}}</p>
         <p class="card-text">PAGO DE VACACIONES: ${{$vacacion->pago_vacacional}}</p>
