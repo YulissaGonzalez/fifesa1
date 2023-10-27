@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('empleados/create',[EmpleadosController::class, 'create']);
 Route::resource('empleados',EmpleadosController::class);
 Route::get('/empleados/{id}/editempleado', [EmpleadosController::class, 'edit'])->name('empleados.edit');
+Route::get('descargar-empleados', [EmpleadosController::class, 'pdf'])->name('listado.pdf');
 
 Route::get('vacaciones/create',[VacacionesController::class, 'create']);
 Route::resource('vacaciones',VacacionesController::class);

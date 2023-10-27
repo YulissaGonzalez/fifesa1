@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\empleados;
+use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class EmpleadosController extends Controller
 {
+
+    public function pdf() {
+        $empleados = empleados::all();
+        $pdf = PDF::loadView('pdf.listado', compact('empleados'));
+        return $pdf->download('listado.pdf');
+
+    }
     public function index()
     {
         $empleados=empleados::all();

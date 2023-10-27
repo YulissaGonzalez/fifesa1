@@ -7,11 +7,11 @@
         <p class="card-text">ID: {{$empleado->id}}</p>
         <p class="card-text">PUESTO: {{$empleado->puesto}}</p>
         <p class="card-text">NSS: {{$empleado->nss}}</p>
+        <p class="card-text">CURP: {{$empleado->curp}}</p>
         <p class="card-text">RFC: {{$empleado->rfc}}</p>
         <p class="card-text">SALARIO SUELDO BASE: ${{$empleado->salario_sueldo_base}}</p>
         <p class="card-text">MOVIMIENTO: {{$empleado->movimiento}}</p>
         <p class="card-text">FECHA DE INGRESO: {{$empleado->fecha_ingreso}}</p>
-        <p class="card-text">USUARIO QUE REGISTRÓ: {{$empleado->users_id}}</p>
         <a href="/empleados/" class="btn btn-secondary">ATRAS</a>
     </div>
 </div>
