@@ -16,6 +16,7 @@ class EmpleadosController extends Controller
         return $pdf->download('listado.pdf');
 
     }
+    
     public function index()
     {
         $empleados=empleados::all();

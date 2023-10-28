@@ -7,7 +7,7 @@
 
   <div class="text-center">
     <h1 class="display-4">Listado de Empleados</h1>
-  </div>
+    </div>
 
   <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listado.pdf') }}" class="btn btn-success">Descargar PDF</a>

@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\vacaciones;
+use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class VacacionesController extends Controller
 {
+    public function pdf() {
+        $vacaciones = vacaciones::all();
+        $pdf = PDF::loadView('pdf.listadov', compact('vacaciones'));
+        return $pdf->download('listadov.pdf');
+
+    }
+
     public function index()
     {
         $vacaciones=vacaciones::with('empleado')->get();

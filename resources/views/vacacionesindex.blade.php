@@ -9,6 +9,10 @@
     <h1 class="display-4">Listado de Vacaciones</h1>
   </div>
 
+  <div class="d-flex justify-content-center mt-4">
+    <a href="{{ route('listadov.pdf') }}" class="btn btn-success">Descargar PDF</a>
+  </div>
+
   <div class="row mt-4">
     @foreach ($vacaciones as $vacacion)
       <div class="col-sm">

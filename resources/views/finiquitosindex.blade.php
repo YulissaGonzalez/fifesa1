@@ -9,6 +9,10 @@
     <h1 class="display-4">Listado de Finiquitos</h1>
 </div>
 
+<div class="d-flex justify-content-center mt-4">
+    <a href="{{ route('listadof.pdf') }}" class="btn btn-success">Descargar PDF</a>
+  </div>
+
 <div class="row mt-4">
     @foreach ($finiquitos as $finiquito)
         <div class="col-sm">

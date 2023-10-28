@@ -30,11 +30,13 @@ Route::get('vacaciones/create',[VacacionesController::class, 'create']);
 Route::resource('vacaciones',VacacionesController::class);
 Route::post('vacaciones/delete/{id}', [VacacionesController::class, 'destroy']);
 Route::get('/vacaciones/{id}/editvacacion', [VacacionesController::class, 'edit'])->name('vacaciones.edit');
+Route::get('descargar-vacaciones', [VacacionesController::class, 'pdf'])->name('listadov.pdf');
 
 Route::get('finiquitos/create',[FiniquitosController::class, 'create']);
 Route::resource('finiquitos',FiniquitosController::class);
 Route::get('delete/{id}',[FiniquitosController::class, 'destroy']);
 Route::get('/finiquitos/{id}/editfiniquito', [FiniquitosController::class, 'edit'])->name('finiquitos.edit');
+Route::get('descargar-finiquitos', [FiniquitosController::class, 'pdf'])->name('listadof.pdf');
 
 
 Auth::routes();

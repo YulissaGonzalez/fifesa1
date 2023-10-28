@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\finiquitos;
+use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class FiniquitosController extends Controller
 {
+    public function pdf() {
+        $finiquitos = finiquitos::all();
+        $pdf = PDF::loadView('pdf.listadof', compact('finiquitos'));
+        return $pdf->download('listadof.pdf');
+
+    }
+
     public function index()
     {
         $finiquitos=finiquitos::with('empleado')->get();
