@@ -9,7 +9,7 @@
     {!! Form::model($empleado, ['url' => route('empleados.update', $empleado->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
     @include('empleadosForm')
     <div class="text-center">
-        {!! Form::submit('GUARDAR CAMBIOS', ['class' => 'btn btn-secondary']) !!}
+        {!! Form::submit('GUARDAR CAMBIOS', ['class' => "btn btn-outline-success ml-4"]) !!}
     </div>
     {!! Form::close() !!}
 </div>

@@ -1,26 +1,30 @@
 @extends('layouts.app')
-@section('title','Empleados')
-@section ('content')
-@csrf
 
-<center><h1><p> LISTADO DE EMPLEADOS</p></h1></center> 
+@section('title', 'Empleados')
 
-<div class="d-flex align-items-center justify-content-center">
-  <a href="{{ route('listado.pdf') }}" class="btn btn-success ml-4">Descargar PDF</a>
-</div>
+@section('content')
+  @csrf
 
-<div class="row">
-@foreach ($empleados as $empleados)
-<div class="col-sm">
-    <div class="card text-center" style="width: 18rem; margin-top: 70px;">
-    <div class="card-body">
-      <h5 class="card-title">{{ $empleados->nombre_empleado }}</h5>
-      <a href="/empleados/{{$empleados->id}}" class="btn btn-secondary">MOSTRAR</a>
-      <a href="/empleados/{{$empleados->id}}/editempleado" class="btn btn-secondary">EDITAR</a>
-
-    </div>
+  <div class="text-center">
+    <h1 class="display-4">Listado de Empleados</h1>
   </div>
-    </div>
-@endforeach
-</div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <a href="{{ route('listado.pdf') }}" class="btn btn-success">Descargar PDF</a>
+  </div>
+
+  <div class="row mt-4">
+    @foreach ($empleados as $empleado)
+      <div class="col-sm">
+        <div class="card text-center" style="width: 18rem; margin-top: 30px; background-color: #dfdfdf; border: 1px solid #e0e0e0;">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #333; font-size: 1.5rem; font-weight: bold;">{{ $empleado->nombre_empleado }}</h5>
+            <a href="/empleados/{{ $empleado->id }}" class="btn btn-outline-success ml-4">Mostrar</a>
+            <a href="/empleados/{{ $empleado->id }}/editempleado" class="btn btn-outline-success ml-4">Editar</a>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
 @endsection
+

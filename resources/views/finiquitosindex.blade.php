@@ -1,25 +1,29 @@
 @extends('layouts.app')
-@section('title','Finiquitos')
-@section ('content')
+
+@section('title', 'Finiquitos')
+
+@section('content')
 @csrf
 
-<center><h1><p> LISTADO DE FINIQUITOS</p></h1></center>
-<div class="row">
-@foreach ($finiquitos as $finiquitos)
-<div class="col-sm">
-    <div class="card text-center" style="width: 18rem; margin-top: 70px;">
-    <div class="card-body">
-      <h5 class="card-title">{{$finiquitos ->empleado->nombre_empleado}}</h5>
-      <p class="card-text"> </p>
-      <a href="/finiquitos/{{$finiquitos->id}}" class="btn btn-secondary">MOSTRAR</a>
-      <a href="/finiquitos/{{$finiquitos->id}}/editfiniquito" class="btn btn-secondary">EDITAR</a>
-      <br>
-      <br>
-      <a href="/delete/{{$finiquitos->id}}" class="btn btn-danger">ELIMINAR</a>
+<div class="text-center">
+    <h1 class="display-4">Listado de Finiquitos</h1>
+</div>
 
-    </div>
-  </div>
-    </div>
-@endforeach
+<div class="row mt-4">
+    @foreach ($finiquitos as $finiquito)
+        <div class="col-sm">
+            <div class="card text-center" style="width: 18rem; margin-top: 70px; background-color: #dfdfdf; border: 1px solid #e0e0e0;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #333; font-size: 1.5rem; font-weight: bold;">{{ $finiquito->empleado->nombre_empleado }}</h5>
+                    <p class="card-text"></p>
+                    <a href="/finiquitos/{{ $finiquito->id }}" class="btn btn-outline-success ml-4">Mostrar</a>
+                    <a href="/finiquitos/{{ $finiquito->id }}/editfiniquito" class="btn btn-outline-success ml-4">Editar</a>
+                    <br>
+                    <br>
+                    <a href="/delete/{{ $finiquito->id }}" class="btn btn-outline-danger ml-4">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>
 @endsection

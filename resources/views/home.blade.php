@@ -11,16 +11,16 @@
     <br>
     <br>
     <div class="menu-links text-center">
-        <a href="{{ route('empleados.create') }}" class="btn btn-success">AGREGAR EMPLEADOS</a>
-        <a href="{{ route('vacaciones.create') }}" class="btn btn-success">AGREGAR VACACIONES</a>
-        <a href="{{ route('finiquitos.create') }}" class="btn btn-success">AGREGAR FINIQUITOS</a>
+        <a href="{{ route('empleados.create') }}" class="btn btn-outline-success ml-4">AGREGAR EMPLEADOS</a>
+        <a href="{{ route('vacaciones.create') }}" class="btn btn-outline-success ml-4">AGREGAR VACACIONES</a>
+        <a href="{{ route('finiquitos.create') }}" class="btn btn-outline-success ml-4">AGREGAR FINIQUITOS</a>
     </div>
     <br>
     <br>
     <div class="menu-links text-center">
-        <a href="{{ route('empleados.index') }}" class="btn btn-success">LISTADO DE EMPLEADOS</a>
-        <a href="{{ route('vacaciones.index') }}" class="btn btn-success">LISTADO DE VACACIONES</a>
-        <a href="{{ route('finiquitos.index') }}" class="btn btn-success">LISTADO DE FINIQUITOS</a>
+        <a href="{{ route('empleados.index') }}" class="btn btn-outline-success ml-4">LISTADO DE EMPLEADOS</a>
+        <a href="{{ route('vacaciones.index') }}" class="btn btn-outline-success ml-4">LISTADO DE VACACIONES</a>
+        <a href="{{ route('finiquitos.index') }}" class="btn btn-outline-success ml-4">LISTADO DE FINIQUITOS</a>
     </div>
 </div>
 

@@ -9,7 +9,9 @@
     {!! Form::open(['url' => '/vacaciones', 'method' => 'POST', 'class' => 'mt-4']) !!}
     @csrf
     @include('vacacionesform')
-    {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
+    <div class="text-center">
+    {!! Form::submit('GUARDAR', ['class' => "btn btn-outline-success ml-4"]) !!}
+    </div>
     {!! Form::close() !!}
 </div>
 @endsection

@@ -9,7 +9,9 @@
     {!! Form::open(['url' => route('empleados.store'), 'method' => 'POST', 'class' => 'mt-4']) !!}
     {!! Form::token() !!}
     @include('empleadosForm')
-    {!! Form::submit('GUARDAR', ['class' => 'btn btn-success']) !!}
+    <div class="text-center">
+    {!! Form::submit('GUARDAR', ['class' => "btn btn-outline-success ml-4"]) !!}
+    </div>
     {!! Form::close() !!}
 </div>
 @endsection
