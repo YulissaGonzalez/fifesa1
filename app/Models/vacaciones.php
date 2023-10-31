@@ -16,4 +16,8 @@ class vacaciones extends Model
     {
         return $this->belongsTo('App\Models\empleados', 'empleados_id');
     }
+    public function empleadoname()
+    {
+        return $this->hasMany(empleados::class, 'users_id', 'id');
+    }
 }

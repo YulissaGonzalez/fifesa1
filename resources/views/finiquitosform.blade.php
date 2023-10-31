@@ -1,7 +1,8 @@
 @csrf
 <div class="mb-3">
     {!! Form::label('empleados_id', 'ID del Empleado:', ['class' => 'form-label']) !!}
-    {!! Form::text('empleados_id', old('empleados_id'), ['class' => 'form-control']) !!}
+    {!! Form::select('empleados_id', $empleados->pluck('id', 'id'), old('empleados_id'), ['class' => 'form-select', 'required' => 'required', 'placeholder' => 'Elige un id de empleado']) !!}
+    
 </div>
 <div class="mb-3">
     {!! Form::label('monto_diario', 'Monto Diario:', ['class' => 'form-label']) !!}

@@ -30,15 +30,25 @@
 
 <div class="mb-3">
     {!! Form::label('movimiento', 'Movimiento:', ['class' => 'form-label']) !!}
-    {!! Form::text('movimiento', null, ['class' => 'form-control']) !!}
+    
+    <div class="form-check">
+        {!! Form::radio('movimiento', 'Activo',
+         isset($empleado) && $empleado->movimiento === 'Activo', ['class' => 'form-check-input', 'id' => 'flexRadioDefault']) !!}
+        {!! Form::label('flexRadioDefault', 'Activo', ['class' => 'form-check-label']) !!}
+    </div>
+    
+    <div class="form-check">
+        {!! Form::radio('movimiento', 'Inactivo', isset($empleado) && $empleado->movimiento === 'Inactivo', ['class' => 'form-check-input', 'id' => 'flexRadioChecked']) !!}
+        {!! Form::label('flexRadioChecked', 'Inactivo', ['class' => 'form-check-label']) !!}
+    </div>
 </div>
 
 <div class="mb-3">
     {!! Form::label('fecha_ingreso', 'Fecha de Ingreso:', ['class' => 'form-label']) !!}
-    {!! Form::text('fecha_ingreso', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha_ingreso', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="mb-3">
     {!! Form::label('users_id', 'Usuario:', ['class' => 'form-label']) !!}
-    {!! Form::text('users_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('users_id',$users->pluck('name','id'), null, ['class' => 'form-select', 'required'=>'required', 'placeholder'=>'Elige un usuario']) !!}
 </div>

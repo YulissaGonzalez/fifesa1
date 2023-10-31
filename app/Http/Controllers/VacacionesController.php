@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\vacaciones;
+use App\Models\empleados;
+
 use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class VacacionesController extends Controller
@@ -24,7 +26,8 @@ class VacacionesController extends Controller
 
     public function create()
     {
-        return view('vacacionescreate');
+        $empleados=empleados::all();
+        return view('vacacionescreate', compact('empleados'));
     }
 
     public function store(Request $request)
@@ -51,7 +54,8 @@ class VacacionesController extends Controller
     public function edit($id)
     {
         $vacacion = vacaciones::find($id);
-        return view('vacacionesedit', compact('vacacion'));
+        $empleados=empleados::all();
+        return view('vacacionesedit', compact('vacacion', 'empleados'));
     }
 
     public function update(Request $request, $id)
@@ -76,17 +80,17 @@ class VacacionesController extends Controller
     }
 
     // Actualizar los datos del empleado
-    $vacacion -> empleados_id = $request -> input('empleados_id');
-    $vacacion  -> cargo = $request -> input('cargo');
-    $vacacion  -> fecha_ingreso = $request -> input('fecha_ingreso');
-    $vacacion  -> pago_vacacional = $request -> input('pago_vacacional');
-    $vacacion  -> inicio_vacaciones = $request -> input('inicio_vacaciones');
-    $vacacion  -> regreso_vacaciones = $request -> input('regreso_vacaciones');
-    $vacacion  -> dias_vacaciones = $request -> input('dias_vacaciones');
+        $vacacion -> empleados_id = $request -> input('empleados_id');
+        $vacacion  -> cargo = $request -> input('cargo');
+        $vacacion  -> fecha_ingreso = $request -> input('fecha_ingreso');
+        $vacacion  -> pago_vacacional = $request -> input('pago_vacacional');
+        $vacacion  -> inicio_vacaciones = $request -> input('inicio_vacaciones');
+        $vacacion  -> regreso_vacaciones = $request -> input('regreso_vacaciones');
+        $vacacion  -> dias_vacaciones = $request -> input('dias_vacaciones');
         
         $vacacion->save();
 
-    return redirect()->route('vacaciones.index')->with('success', 'Vacacion updated successfully');
+    return redirect()->route('vacaciones.index')->with('success', 'Vacación actualizada con éxito');
     }
 
     public function destroy(string $id)

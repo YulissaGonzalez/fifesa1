@@ -5,17 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\empleados;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class EmpleadosController extends Controller
 {
-
-    public function pdf() {
-        $empleados = empleados::all();
-        $pdf = PDF::loadView('pdf.listado', compact('empleados'));
-        return $pdf->download('listado.pdf');
-
-    }
     
     public function index()
     {
@@ -25,7 +19,8 @@ class EmpleadosController extends Controller
 
     public function create()
     {
-        return view('empleadoscreate');
+        $users=User::all();
+        return view('empleadoscreate', compact('users'));
     }
 
     public function store(Request $request)
@@ -47,14 +42,14 @@ class EmpleadosController extends Controller
 
     public function show(empleados $empleado)
     {
-       
         return view('empleadosshow', compact('empleado'));
-    }
+    }   
 
     public function edit($id)
     {
         $empleado = empleados::find($id);
-        return view('empleadosedit', compact('empleado'));
+        $users=User::all();
+        return view('empleadosedit', compact('empleado', 'users'));
     }
 
     public function update(Request $request, $id)
@@ -97,5 +92,21 @@ class EmpleadosController extends Controller
     public function destroy(string $id)
     {
         
+    }
+    public function status()
+    {
+        $empleados=empleados::all();
+        return view('empleadosstatus', compact('empleados'));
+    }
+
+    public function pdf() {
+        $empleados = empleados::all();
+        $pdf = PDF::loadView('pdf.listado', compact('empleados'));
+        return $pdf->download('listado.pdf');
+    }
+    public function pdfs() {
+        $empleados = empleados::all();
+        $pdf = PDF::loadView('pdf.listados', compact('empleados'));
+        return $pdf->download('listados.pdf');
     }
 }

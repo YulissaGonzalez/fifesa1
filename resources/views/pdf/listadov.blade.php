@@ -6,7 +6,8 @@
         src: url('{{ storage_path('fonts/glyphicons_halflings_normal_3d76689c6cd5d64eacf204729ecf81bc.ufm') }}') format('truetype');
     }
 </style>
-
+<h1 style="text-align: center;">LISTADO DE VACACIONES</h1>
+<br>
 <table class="table table-hover table-striped">
     <thead>
         <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\finiquitos;
+use App\Models\empleados;
 use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class FiniquitosController extends Controller
@@ -24,7 +25,8 @@ class FiniquitosController extends Controller
 
     public function create()
     {
-        return view('finiquitoscreate');
+        $empleados=empleados::all();
+        return view('finiquitoscreate',compact('empleados'));
     }
 
     public function store(Request $request)
@@ -47,7 +49,8 @@ class FiniquitosController extends Controller
     public function edit($id)
     {
         $finiquito = finiquitos::find($id);
-        return view('finiquitosedit', compact('finiquito'));
+        $empleados=empleados::all();
+        return view('finiquitosedit', compact('finiquito', 'empleados'));
     }
 
     public function update(Request $request, $id)

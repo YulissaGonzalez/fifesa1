@@ -11,6 +11,8 @@
 
   <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listado.pdf') }}" class="btn btn-success">Descargar PDF</a>
+    <a href="empleadosstatus" class="btn btn-success">Status</a>
+
   </div>
 
   <div class="row mt-4">
