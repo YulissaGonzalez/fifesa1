@@ -17,7 +17,7 @@ use App\Http\Controllers\FiniquitosController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('empleados/create',[EmpleadosController::class, 'create']);
