@@ -4,10 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class empleados extends Model
 {
     use HasFactory;
+   
+    use Searchable;
+    public function toSearchableArray()
+    {
+        return [
+            'nombre_empleado' => $this->nombre_empleado,
+        ];
+    }
     
     public function user()
     {

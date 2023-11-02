@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\vacaciones;
 use App\Models\empleados;
-
+use Laravel\Scout\Searchable;
 use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 class VacacionesController extends Controller
@@ -18,10 +18,20 @@ class VacacionesController extends Controller
 
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $vacaciones=vacaciones::with('empleado')->get();
+        $searchQuery = $request->input('query');
+
+    if ($searchQuery) {
+        $vacaciones = vacaciones::whereHas('empleado', function ($query) use ($searchQuery) {
+            $query->where('nombre_empleado', 'like', '%' . $searchQuery . '%');
+        })->get();
+        return view('vacacionessearch', compact('vacaciones'));
+
+    } else {
+        $vacaciones = vacaciones::all();
         return view('vacacionesindex', compact('vacaciones'));
+    }
     }
 
     public function create()

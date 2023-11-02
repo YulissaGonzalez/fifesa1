@@ -6,7 +6,11 @@
         src: url('{{ storage_path('fonts/glyphicons_halflings_normal_3d76689c6cd5d64eacf204729ecf81bc.ufm') }}') format('truetype');
     }
 </style>
-<h1 style="text-align: center;">LISTADO DE EMPLEADOS EMPLEADOS</h1>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <img src="images/Fifesa1.jpg" alt="Logo" width="100" > 
+    <h1 style="text-align: center;">LISTADO DE EMPLEADOS</h1>
+</div>
+
 <br>
 <table class="table table-hover table-striped">
     <thead>

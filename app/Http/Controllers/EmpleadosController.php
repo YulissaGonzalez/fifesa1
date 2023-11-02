@@ -7,15 +7,24 @@ use App\Http\Controllers\Controller;
 use App\Models\empleados;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\pdf as PDF;
+use Laravel\Scout\Searchable;
 
 class EmpleadosController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $empleados=empleados::all();
-        return view('empleadosindex', compact('empleados'));
+        $query = $request->input('query'); 
+
+    if ($query) {
+        $empleados = empleados::search($query)->get();
+        return view('empleadossearch', compact('empleados')); 
+    } else {
+        $empleados = empleados::all();
     }
+
+    return view('empleadosindex', compact('empleados'));
+}
 
     public function create()
     {

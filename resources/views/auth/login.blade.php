@@ -40,7 +40,7 @@
         <div class="card-body py-5 px-md-5">
           <div class="row">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="{{ asset('Fifesalogo.png') }}" alt="Fifesa" style="height: 250px; margin-left: -40px;">
+                <img src="{{ asset('images/Fifesalogo.png') }}" alt="Fifesa" style="height: 250px; margin-left: -40px;">
             </div>
             <div class="col-md-6 col-lg-7">
               <div>

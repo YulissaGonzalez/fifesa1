@@ -4,6 +4,10 @@
 
 @section('content')
   @csrf
+  <form method="GET" action="{{ route('vacaciones.index') }}">
+    <input type="text" name="query" placeholder="Término de búsqueda">
+    <button type="submit" class="btn btn-dark">Buscar</button>
+</form>
 
   <div class="text-center">
     <h1 class="display-4">Listado de Vacaciones</h1>

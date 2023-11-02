@@ -6,7 +6,7 @@
     <br>
     <br>
     <div class="text-center">
-        <img src="{{ asset('Fifesalogo.png') }}" class="img-fluid">
+        <img src="{{ asset('images/Fifesalogo.png') }}" class="logo" alt="Logo">
     </div>
     <br>
     <br>

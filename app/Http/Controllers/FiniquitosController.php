@@ -17,11 +17,24 @@ class FiniquitosController extends Controller
 
     }
 
-    public function index()
-    {
-        $finiquitos=finiquitos::with('empleado')->get();
+    public function index(Request $request)
+{
+    $searchQuery = $request->input('query');
+
+    if ($searchQuery) {
+        $finiquitos = finiquitos::whereHas('empleado', function ($query) use ($searchQuery) {
+            $query->where('nombre_empleado', 'like', '%' . $searchQuery . '%');
+        })->get();
+        return view('finiquitossearch', compact('finiquitos'));
+
+    } else {
+        $finiquitos = finiquitos::all();
         return view('finiquitosindex', compact('finiquitos'));
     }
+
+    
+}
+
 
     public function create()
     {

@@ -4,6 +4,10 @@
 
 @section('content')
   @csrf
+  <form method="GET" action="{{ route('empleados.index') }}">
+    <input type="text" name="query" placeholder="Término de búsqueda">
+    <button type="submit" class="btn btn-dark">Buscar</button>
+</form>
 
   <div class="text-center">
     <h1 class="display-4">Listado de Empleados</h1>
@@ -11,7 +15,7 @@
 
   <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listado.pdf') }}" class="btn btn-success">Descargar PDF</a>
-    <a href="empleadosstatus" class="btn btn-success">Status</a>
+    <a href="{{ route('empleados.status') }}" class="btn btn-success">Status</a>
 
   </div>
 
