@@ -44,6 +44,13 @@ class FiniquitosController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'empleados_id' => 'required|exists:empleados,id',
+            'monto_diario' => 'required|numeric',
+            'dias_a_la_fecha' => 'required|numeric',
+            'total_finiquito' => 'required|numeric',
+        ]);
+
          //return $request->all();
          $finiquitos = new finiquitos();
          $finiquitos -> empleados_id = $request -> input('empleados_id');
@@ -70,10 +77,10 @@ class FiniquitosController extends Controller
     {
         // Validación de datos
         $request->validate([
-            'empleados_id' => 'required',
-            'monto_diario' => 'required',
-            'dias_a_la_fecha' => 'required',
-            'total_finiquito' => 'required',
+            //'empleados_id' => 'required|exists:empleados,id',
+            'monto_diario' => 'required|numeric',
+            'dias_a_la_fecha' => 'required|numeric',
+            'total_finiquito' => 'required|numeric',
     ]);
 
     // Obtener el empleado a actualizar
@@ -85,7 +92,7 @@ class FiniquitosController extends Controller
     }
 
     // Actualizar los datos del empleado
-        $finiquito -> empleados_id = $request -> input('empleados_id');
+        //$finiquito -> empleados_id = $request -> input('empleados_id');
         $finiquito -> monto_diario = $request -> input('monto_diario');
         $finiquito -> dias_a_la_fecha = $request -> input('dias_a_la_fecha');
         $finiquito -> total_finiquito = $request -> input('total_finiquito');

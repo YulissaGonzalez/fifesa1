@@ -34,6 +34,18 @@ class EmpleadosController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nombre_empleado' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'nss' => 'required|string|max:8',
+            'rfc' => 'required|string|max:8',
+            'curp' => 'required|string|max:8',
+            'salario_sueldo_base' => 'required|numeric',
+            'movimiento' => 'required|string|max:255',
+            'fecha_ingreso' => 'required|date',
+            'users_id' => 'required|exists:users,id',
+        ]);
+        
         //return $request->all();
         $empleados = new empleados();
         $empleados -> nombre_empleado = $request -> input('nombre_empleado');
@@ -107,6 +119,19 @@ class EmpleadosController extends Controller
         $empleados=empleados::all();
         return view('empleadosstatus', compact('empleados'));
     }
+
+    public function indexx(Request $request)
+    {
+        $query = $request->input('query'); 
+
+    if ($query) {
+        $empleados = empleados::search($query)->get();
+        return view('statussearch', compact('empleados')); 
+    } else {
+        $empleados = empleados::all();
+    }
+
+}
 
     public function pdf() {
         $empleados = empleados::all();

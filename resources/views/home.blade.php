@@ -22,6 +22,7 @@
         <a href="{{ route('vacaciones.index') }}" class="btn btn-outline-success ml-4">LISTADO DE VACACIONES</a>
         <a href="{{ route('finiquitos.index') }}" class="btn btn-outline-success ml-4">LISTADO DE FINIQUITOS</a>
     </div>
+    <!-- Código de instalación Cliengo para julissagonzalezgo2002@gmail.com --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/65413ed87f74080032cec0e4/65413edb7f74080032cec0e7.js?platform=view_installation_code'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
 </div>
 
 @endsection

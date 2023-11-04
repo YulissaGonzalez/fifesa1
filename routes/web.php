@@ -30,6 +30,8 @@ Route::get('descargar-empleados', [EmpleadosController::class, 'pdf'])->name('li
 Route::get('descargar-status-empleados', [EmpleadosController::class, 'pdfs'])->name('listados.pdf');
 Route::get('empleadosstatus/', [EmpleadosController::class, 'status'])->name('empleados.status');
 Route::get('/search', [EmpleadosController::class, 'index']);
+Route::get('/indexx', [EmpleadosController::class, 'indexx'])->name('empleados.indexx');
+
 
 //VACACIONES
 Route::get('vacaciones/create',[VacacionesController::class, 'create']);
@@ -46,6 +48,8 @@ Route::get('delete/{id}',[FiniquitosController::class, 'destroy']);
 Route::get('/finiquitos/{id}/editfiniquito', [FiniquitosController::class, 'edit'])->name('finiquitos.edit');
 Route::get('descargar-finiquitos', [FiniquitosController::class, 'pdf'])->name('listadof.pdf');
 Route::get('/search', [FiniquitosController::class, 'index']);
+Route::get('/search', [FiniquitosController::class, 'indexx']);
+
 
 
 Auth::routes();

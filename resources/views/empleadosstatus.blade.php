@@ -3,8 +3,12 @@
 @section('title', 'Status de Empleados')
 
 @section('content')
+
 <div class="container">
-    
+    <form method="GET" action="{{ route('empleados.indexx') }}">
+        <input type="text" name="query" placeholder="Término de búsqueda">
+        <button type="submit" class="btn btn-dark">Buscar</button>
+    </form>
     <a href="{{ route('empleados.index') }}" class="btn btn-success">Volver</a>
     <a href="{{ route('listados.pdf') }}" class="btn btn-success">Descargar PDF</a>
     <h1 class="text-center my-4">Status de Empleados</h1>

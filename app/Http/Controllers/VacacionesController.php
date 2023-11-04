@@ -42,6 +42,15 @@ class VacacionesController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'empleados_id' => 'required|exists:empleados,id',
+            'cargo' => 'required|string',
+            'pago_vacacional' => 'required|numeric',
+            'inicio_vacaciones' => 'required|date',
+            'regreso_vacaciones' => 'required|date',
+            'dias_vacaciones' => 'required|numeric',
+        ]);
+
          //return $request->all();
          $vacaciones = new vacaciones();
          $vacaciones -> empleados_id = $request -> input('empleados_id');
@@ -72,12 +81,12 @@ class VacacionesController extends Controller
     {
         // Validación de datos
         $request->validate([
-            'empleados_id' => 'required',
-            'cargo' => 'required',
-            'pago_vacacional' => 'required',
-            'inicio_vacaciones' => 'required',
-            'regreso_vacaciones' => 'required',
-            'dias_vacaciones' => 'required',
+            //'empleados_id' => 'required',
+            'cargo' => 'required|string',
+            'pago_vacacional' => 'required|numeric',
+            'inicio_vacaciones' => 'required|date',
+            'regreso_vacaciones' => 'required|date',
+            'dias_vacaciones' => 'required|numeric',
 
         ]);
 
@@ -90,7 +99,7 @@ class VacacionesController extends Controller
     }
 
     // Actualizar los datos del empleado
-        $vacacion -> empleados_id = $request -> input('empleados_id');
+       // $vacacion -> empleados_id = $request -> input('empleados_id');
         $vacacion  -> cargo = $request -> input('cargo');
         $vacacion  -> fecha_ingreso = $request -> input('fecha_ingreso');
         $vacacion  -> pago_vacacional = $request -> input('pago_vacacional');
