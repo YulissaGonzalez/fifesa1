@@ -15,7 +15,6 @@
 <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th>ID</th>
             <th>NOMBRE DEL EMPLEADO</th>
             <th>PUESTO</th>
             <th>CURP</th>
@@ -28,13 +27,12 @@
     <tbody>
         @foreach ($empleados as $empleados)
             <tr>
-                <td>{{ $empleados->id  }}</td>
                 <td>{{ $empleados->nombre_empleado  }}</td>
                 <td>{{ $empleados->puesto  }}</td>
                 <td>{{ $empleados->curp  }}</td>
                 <td>{{ $empleados->nss  }}</td>
                 <td>{{ $empleados->rfc  }}</td>
-                <td>{{ $empleados->salario_sueldo_base  }}</td>
+                <td>${{ $empleados->salario_sueldo_base }}</td>
                 <td>{{ $empleados->fecha_ingreso }}</td>
             </tr>
         @endforeach

@@ -28,7 +28,7 @@
                 <td>{{ $vacaciones->empleado->nombre_empleado  }}</td>
                 <td>{{ $vacaciones->cargo  }}</td>
                 <td>{{ $vacaciones->fecha_ingreso  }}</td>
-                <td>{{ $vacaciones->pago_vacacional  }}</td>
+                <td>${{ $vacaciones->pago_vacacional  }}</td>
                 <td>{{ $vacaciones->inicio_vacaciones  }}</td>
                 <td>{{ $vacaciones->regreso_vacaciones  }}</td>
                 <td>{{ $vacaciones->dias_vacaciones }}</td>

@@ -22,9 +22,9 @@
         @foreach ($finiquitos as $finiquitos)
             <tr>
                 <td>{{ $finiquitos->empleado->nombre_empleado  }}</td>
-                <td>{{ $finiquitos->monto_diario  }}</td>
+                <td>${{ $finiquitos->monto_diario  }}</td>
                 <td>{{ $finiquitos->dias_a_la_fecha  }}</td>
-                <td>{{ $finiquitos->total_finiquito  }}</td>
+                <td>${{ $finiquitos->total_finiquito  }}</td>
             </tr>
         @endforeach
     </tbody>
