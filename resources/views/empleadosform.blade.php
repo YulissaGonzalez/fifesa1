@@ -1,31 +1,61 @@
 <div class="mb-3">
     {!! Form::label('nombre_empleado', 'Nombre del empleado:', ['class' => 'form-label']) !!}
-    {!! Form::text('nombre_empleado', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre_empleado', null, ['class' => 'form-control'.($errors->has('nombre_empleado') ? ' is-invalid' : '')]) !!}
+    @error('nombre_empleado')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
     {!! Form::label('puesto', 'Puesto:', ['class' => 'form-label']) !!}
-    {!! Form::text('puesto', null, ['class' => 'form-control']) !!}
+    {!! Form::text('puesto', null, ['class' => 'form-control'.($errors->has('puesto') ? ' is-invalid' : '')]) !!}
+    @error('puesto')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
     {!! Form::label('nss', 'NSS:', ['class' => 'form-label']) !!}
-    {!! Form::text('nss', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nss', null, ['class' => 'form-control'.($errors->has('nss') ? ' is-invalid' : '')]) !!}
+    @error('nss')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
     {!! Form::label('rfc', 'RFC:', ['class' => 'form-label']) !!}
-    {!! Form::text('rfc', null, ['class' => 'form-control']) !!}
+    {!! Form::text('rfc', null, ['class' => 'form-control'.($errors->has('rfc') ? ' is-invalid' : '')]) !!}
+    @error('rfc')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
     {!! Form::label('curp', 'CURP:', ['class' => 'form-label']) !!}
-    {!! Form::text('curp', null, ['class' => 'form-control']) !!}
+    {!! Form::text('curp', null, ['class' => 'form-control'.($errors->has('curp') ? ' is-invalid' : '')]) !!}
+    @error('curp')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
     {!! Form::label('salario_sueldo_base', 'Salario sueldo base:', ['class' => 'form-label']) !!}
-    {!! Form::text('salario_sueldo_base', null, ['class' => 'form-control']) !!}
+    {!! Form::text('salario_sueldo_base', null, ['class' => 'form-control'.($errors->has('salario_sueldo_base') ? ' is-invalid' : '')]) !!}
+    @error('salario_sueldo_base')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">
@@ -45,7 +75,12 @@
 
 <div class="mb-3">
     {!! Form::label('fecha_ingreso', 'Fecha de Ingreso:', ['class' => 'form-label']) !!}
-    {!! Form::date('fecha_ingreso', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha_ingreso', null, ['class' => 'form-control'.($errors->has('fecha_ingreso') ? ' is-invalid' : '')]) !!}
+    @error('fecha_ingreso')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>
 
 <div class="mb-3">

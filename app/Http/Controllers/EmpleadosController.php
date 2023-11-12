@@ -37,9 +37,9 @@ class EmpleadosController extends Controller
         $this->validate($request, [
             'nombre_empleado' => 'required|string|max:255',
             'puesto' => 'required|string|max:255',
-            'nss' => 'required|string|max:8',
-            'rfc' => 'required|string|max:8',
-            'curp' => 'required|string|max:8',
+            'nss' => 'required|string|max:11',
+            'rfc' => 'required|string|max:13',
+            'curp' => 'required|string|max:18',
             'salario_sueldo_base' => 'required|numeric',
             'movimiento' => 'required|string|max:255',
             'fecha_ingreso' => 'required|date',

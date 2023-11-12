@@ -48,7 +48,6 @@ Route::get('delete/{id}',[FiniquitosController::class, 'destroy']);
 Route::get('/finiquitos/{id}/editfiniquito', [FiniquitosController::class, 'edit'])->name('finiquitos.edit');
 Route::get('descargar-finiquitos', [FiniquitosController::class, 'pdf'])->name('listadof.pdf');
 Route::get('/search', [FiniquitosController::class, 'index']);
-Route::get('/search', [FiniquitosController::class, 'indexx']);
 
 
 
