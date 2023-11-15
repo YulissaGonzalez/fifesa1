@@ -18,6 +18,7 @@ return new class extends Migration
             $table->float('salario_sueldo_base');
             $table->string('movimiento');
             $table->date('fecha_ingreso');
+            $table->string('imagen_empleado');
             $table->unsignedBigInteger('users_id');
             $table->timestamps();
 

@@ -6,7 +6,7 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mt-5">Agregar Empleado</h1>
-    {!! Form::open(['url' => route('empleados.store'), 'method' => 'POST', 'class' => 'mt-4']) !!}
+    {!! Form::open(['url' => route('empleados.store'), 'method' => 'POST', 'class' => 'mt-4', 'enctype'=>'multipart/form-data']) !!}
     {!! Form::token() !!}
     @include('empleadosForm')
     <div class="text-center">

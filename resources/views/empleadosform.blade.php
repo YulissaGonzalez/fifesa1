@@ -1,3 +1,5 @@
+
+
 <div class="mb-3">
     {!! Form::label('nombre_empleado', 'Nombre del empleado:', ['class' => 'form-label']) !!}
     {!! Form::text('nombre_empleado', null, ['class' => 'form-control'.($errors->has('nombre_empleado') ? ' is-invalid' : '')]) !!}
@@ -86,4 +88,9 @@
 <div class="mb-3">
     {!! Form::label('users_id', 'Usuario:', ['class' => 'form-label']) !!}
     {!! Form::select('users_id',$users->pluck('name','id'), null, ['class' => 'form-select', 'required'=>'required', 'placeholder'=>'Elige un usuario']) !!}
+</div>
+
+<div class="form-group">
+    {{ Form::label('imagen_empleado', 'Imagen del Empleado') }}
+    {{ Form::file('imagen_empleado', ['class' => 'form-control-file']) }}
 </div>
