@@ -3,6 +3,10 @@
 @section('content')
 <div class="card text-center" style="width: 18rem; margin: 70px auto; background-color: #f9f9f9; border: 2px solid #333; border-radius: 15px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
     <div class="card-body">
+        @if ($empleado->imagen_empleado)
+    <img src="{{ asset('imagen_empleado/' . $empleado->imagen_empleado) }}" alt="Imagen del empleado" style="width: 80%; border-radius: 5px; margin-bottom: 5px;">
+@endif
+
         <h5 class="card-title" style="font-size: 1.5rem; font-weight: bold; color: #333;">{{ $empleado->nombre_empleado }}</h5>
         <p class="card-text" style="color: #555;">ID: {{ $empleado->id }}</p>
         <p class="card-text" style="color: #555;">PUESTO: {{ $empleado->puesto }}</p>
@@ -16,6 +20,7 @@
     </div>
 </div>
 @endsection
+
 
 
 
