@@ -92,5 +92,10 @@
 
 <div class="form-group">
     {{ Form::label('imagen_empleado', 'Imagen del Empleado') }}
-    {{ Form::file('imagen_empleado', ['class' => 'form-control-file']) }}
+    {{ Form::file('imagen_empleado', ['class' => 'form-control-file'.($errors->has('imagen_empleado') ? ' is-invalid' : '')]) }}
+    @error('imagen_empleado')
+    <div class="invalid-feedback" style="color: red;">
+        {{ $message }}
+    </div>
+    @enderror
 </div>

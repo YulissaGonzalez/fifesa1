@@ -32,8 +32,10 @@ class VacacionesController extends Controller
         $vacaciones = vacaciones::all();
         return view('vacacionesindex', compact('vacaciones'));
     }
+
     }
 
+    
     public function create()
     {
         $empleados=empleados::all();
@@ -42,6 +44,26 @@ class VacacionesController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'empleados_id.required' => 'El ID del empleado es obligatorio.',
+            'empleados_id.exists' => 'El empleado seleccionado no existe.',
+            
+            'cargo.required' => 'El cargo es obligatorio.',
+            'cargo.string' => 'El cargo debe ser una cadena de texto.',
+            
+            'pago_vacacional.required' => 'El pago vacacional es obligatorio.',
+            'pago_vacacional.numeric' => 'El pago vacacional debe ser un valor numérico.',
+            
+            'inicio_vacaciones.required' => 'La fecha de inicio de vacaciones es obligatoria.',
+            'inicio_vacaciones.date' => 'La fecha de inicio de vacaciones debe ser una fecha válida.',
+            
+            'regreso_vacaciones.required' => 'La fecha de regreso de vacaciones es obligatoria.',
+            'regreso_vacaciones.date' => 'La fecha de regreso de vacaciones debe ser una fecha válida.',
+            
+            'dias_vacaciones.required' => 'La cantidad de días de vacaciones es obligatoria.',
+            'dias_vacaciones.numeric' => 'La cantidad de días de vacaciones debe ser un valor numérico.',
+        ];
+        
         $this->validate($request, [
             'empleados_id' => 'required|exists:empleados,id',
             'cargo' => 'required|string',
@@ -49,7 +71,8 @@ class VacacionesController extends Controller
             'inicio_vacaciones' => 'required|date',
             'regreso_vacaciones' => 'required|date',
             'dias_vacaciones' => 'required|numeric',
-        ]);
+        ], $messages);
+        
 
          //return $request->all();
          $vacaciones = new vacaciones();
@@ -79,16 +102,35 @@ class VacacionesController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validación de datos
-        $request->validate([
-            //'empleados_id' => 'required',
+        $messages = [
+            'empleados_id.required' => 'El ID del empleado es obligatorio.',
+            'empleados_id.exists' => 'El empleado seleccionado no existe.',
+            
+            'cargo.required' => 'El cargo es obligatorio.',
+            'cargo.string' => 'El cargo debe ser una cadena de texto.',
+            
+            'pago_vacacional.required' => 'El pago vacacional es obligatorio.',
+            'pago_vacacional.numeric' => 'El pago vacacional debe ser un valor numérico.',
+            
+            'inicio_vacaciones.required' => 'La fecha de inicio de vacaciones es obligatoria.',
+            'inicio_vacaciones.date' => 'La fecha de inicio de vacaciones debe ser una fecha válida.',
+            
+            'regreso_vacaciones.required' => 'La fecha de regreso de vacaciones es obligatoria.',
+            'regreso_vacaciones.date' => 'La fecha de regreso de vacaciones debe ser una fecha válida.',
+            
+            'dias_vacaciones.required' => 'La cantidad de días de vacaciones es obligatoria.',
+            'dias_vacaciones.numeric' => 'La cantidad de días de vacaciones debe ser un valor numérico.',
+        ];
+        
+        $this->validate($request, [
+            'empleados_id' => 'required|exists:empleados,id',
             'cargo' => 'required|string',
             'pago_vacacional' => 'required|numeric',
             'inicio_vacaciones' => 'required|date',
             'regreso_vacaciones' => 'required|date',
             'dias_vacaciones' => 'required|numeric',
-
-        ]);
+        ], $messages);
+        
 
     // Obtener el empleado a actualizar
     $vacacion = vacaciones::find($id);

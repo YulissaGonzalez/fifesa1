@@ -27,5 +27,8 @@ class empleados extends Model
         return $this->hasMany(User::class, 'users_id', 'id');
     }
 
-
+    public function vacaciones()
+    {
+        return $this->hasMany(vacaciones::class, 'empleados_id');
+    }
 }

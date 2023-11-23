@@ -22,6 +22,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 //EMPLEADOS
 Route::get('empleados/create',[EmpleadosController::class, 'create']);
 Route::resource('empleados',EmpleadosController::class);

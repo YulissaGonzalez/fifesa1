@@ -44,12 +44,27 @@ class FiniquitosController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'empleados_id.required' => 'El ID del empleado es obligatorio.',
+            'empleados_id.exists' => 'El empleado seleccionado no existe.',
+            
+            'monto_diario.required' => 'El monto diario es obligatorio.',
+            'monto_diario.numeric' => 'El monto diario debe ser un valor numérico.',
+            
+            'dias_a_la_fecha.required' => 'La cantidad de días a la fecha es obligatoria.',
+            'dias_a_la_fecha.numeric' => 'La cantidad de días a la fecha debe ser un valor numérico.',
+            
+            'total_finiquito.required' => 'El total del finiquito es obligatorio.',
+            'total_finiquito.numeric' => 'El total del finiquito debe ser un valor numérico.',
+        ];
+        
         $this->validate($request, [
             'empleados_id' => 'required|exists:empleados,id',
             'monto_diario' => 'required|numeric',
             'dias_a_la_fecha' => 'required|numeric',
             'total_finiquito' => 'required|numeric',
-        ]);
+        ], $messages);
+        
 
          //return $request->all();
          $finiquitos = new finiquitos();
@@ -76,12 +91,27 @@ class FiniquitosController extends Controller
     public function update(Request $request, $id)
     {
         // Validación de datos
-        $request->validate([
-            //'empleados_id' => 'required|exists:empleados,id',
+        $messages = [
+            'empleados_id.required' => 'El ID del empleado es obligatorio.',
+            'empleados_id.exists' => 'El empleado seleccionado no existe.',
+            
+            'monto_diario.required' => 'El monto diario es obligatorio.',
+            'monto_diario.numeric' => 'El monto diario debe ser un valor numérico.',
+            
+            'dias_a_la_fecha.required' => 'La cantidad de días a la fecha es obligatoria.',
+            'dias_a_la_fecha.numeric' => 'La cantidad de días a la fecha debe ser un valor numérico.',
+            
+            'total_finiquito.required' => 'El total del finiquito es obligatorio.',
+            'total_finiquito.numeric' => 'El total del finiquito debe ser un valor numérico.',
+        ];
+        
+        $this->validate($request, [
+            'empleados_id' => 'required|exists:empleados,id',
             'monto_diario' => 'required|numeric',
             'dias_a_la_fecha' => 'required|numeric',
             'total_finiquito' => 'required|numeric',
-    ]);
+        ], $messages);
+        
 
     // Obtener el empleado a actualizar
     $finiquito = finiquitos::find($id);

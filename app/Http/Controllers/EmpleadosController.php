@@ -34,6 +34,46 @@ class EmpleadosController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'nombre_empleado.required' => 'El nombre del empleado es obligatorio.',
+            'nombre_empleado.string' => 'El nombre del empleado debe ser una cadena de texto.',
+            'nombre_empleado.max' => 'El nombre del empleado no puede tener más de :max caracteres.',
+        
+            'puesto.required' => 'El puesto es obligatorio.',
+            'puesto.string' => 'El puesto debe ser una cadena de texto.',
+            'puesto.max' => 'El puesto no puede tener más de :max caracteres.',
+        
+            'nss.required' => 'El NSS es obligatorio.',
+            'nss.string' => 'El NSS debe ser una cadena de texto.',
+            'nss.max' => 'El NSS no puede tener más de :max caracteres.',
+        
+            'rfc.required' => 'El RFC es obligatorio.',
+            'rfc.string' => 'El RFC debe ser una cadena de texto.',
+            'rfc.max' => 'El RFC no puede tener más de :max caracteres.',
+        
+            'curp.required' => 'El CURP es obligatorio.',
+            'curp.string' => 'El CURP debe ser una cadena de texto.',
+            'curp.max' => 'El CURP no puede tener más de :max caracteres.',
+        
+            'salario_sueldo_base.required' => 'El salario o sueldo base es obligatorio.',
+            'salario_sueldo_base.numeric' => 'El salario o sueldo base debe ser un valor numérico.',
+        
+            'movimiento.required' => 'El movimiento es obligatorio.',
+            'movimiento.string' => 'El movimiento debe ser una cadena de texto.',
+            'movimiento.max' => 'El movimiento no puede tener más de :max caracteres.',
+        
+            'fecha_ingreso.required' => 'La fecha de ingreso es obligatoria.',
+            'fecha_ingreso.date' => 'La fecha de ingreso debe ser una fecha válida.',
+        
+            'users_id.required' => 'El ID de usuario es obligatorio.',
+            'users_id.exists' => 'El usuario seleccionado no existe.',
+        
+            'imagen_empleado.required' => 'La imagen del empleado es obligatoria.',
+            'imagen_empleado.image' => 'La imagen debe ser un archivo de imagen.',
+            'imagen_empleado.mimes' => 'La imagen debe tener uno de los siguientes formatos: :values.',
+            'imagen_empleado.max' => 'La imagen no puede ser más grande que :max kilobytes.',
+        ];
+        
         $this->validate($request, [
             'nombre_empleado' => 'required|string|max:255',
             'puesto' => 'required|string|max:255',
@@ -45,8 +85,8 @@ class EmpleadosController extends Controller
             'fecha_ingreso' => 'required|date',
             'users_id' => 'required|exists:users,id',
             'imagen_empleado' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-
-        ]);
+        ], $messages);
+        
 
        //  return $request->all();
         $empleados = new empleados();
@@ -85,19 +125,59 @@ class EmpleadosController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validación de datos
-        $request->validate([
-            'nombre_empleado' => 'required',
-            'puesto' => 'required',
-            'nss' => 'required',
-            'rfc' => 'required',
-            'curp' => 'required',
+        $messages = [
+            'nombre_empleado.required' => 'El nombre del empleado es obligatorio.',
+            'nombre_empleado.string' => 'El nombre del empleado debe ser una cadena de texto.',
+            'nombre_empleado.max' => 'El nombre del empleado no puede tener más de :max caracteres.',
+        
+            'puesto.required' => 'El puesto es obligatorio.',
+            'puesto.string' => 'El puesto debe ser una cadena de texto.',
+            'puesto.max' => 'El puesto no puede tener más de :max caracteres.',
+        
+            'nss.required' => 'El NSS es obligatorio.',
+            'nss.string' => 'El NSS debe ser una cadena de texto.',
+            'nss.max' => 'El NSS no puede tener más de :max caracteres.',
+        
+            'rfc.required' => 'El RFC es obligatorio.',
+            'rfc.string' => 'El RFC debe ser una cadena de texto.',
+            'rfc.max' => 'El RFC no puede tener más de :max caracteres.',
+        
+            'curp.required' => 'El CURP es obligatorio.',
+            'curp.string' => 'El CURP debe ser una cadena de texto.',
+            'curp.max' => 'El CURP no puede tener más de :max caracteres.',
+        
+            'salario_sueldo_base.required' => 'El salario o sueldo base es obligatorio.',
+            'salario_sueldo_base.numeric' => 'El salario o sueldo base debe ser un valor numérico.',
+        
+            'movimiento.required' => 'El movimiento es obligatorio.',
+            'movimiento.string' => 'El movimiento debe ser una cadena de texto.',
+            'movimiento.max' => 'El movimiento no puede tener más de :max caracteres.',
+        
+            'fecha_ingreso.required' => 'La fecha de ingreso es obligatoria.',
+            'fecha_ingreso.date' => 'La fecha de ingreso debe ser una fecha válida.',
+        
+            'users_id.required' => 'El ID de usuario es obligatorio.',
+            'users_id.exists' => 'El usuario seleccionado no existe.',
+        
+            'imagen_empleado.required' => 'La imagen del empleado es obligatoria.',
+            'imagen_empleado.image' => 'La imagen debe ser un archivo de imagen.',
+            'imagen_empleado.mimes' => 'La imagen debe tener uno de los siguientes formatos: :values.',
+            'imagen_empleado.max' => 'La imagen no puede ser más grande que :max kilobytes.',
+        ];
+        
+        $this->validate($request, [
+            'nombre_empleado' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'nss' => 'required|string|max:11',
+            'rfc' => 'required|string|max:13',
+            'curp' => 'required|string|max:18',
             'salario_sueldo_base' => 'required|numeric',
-            'movimiento' => 'required',
-            'fecha_ingreso' => 'required',
+            'movimiento' => 'required|string|max:255',
+            'fecha_ingreso' => 'required|date',
+            'users_id' => 'required|exists:users,id',
             'imagen_empleado' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-
-    ]);
+        ], $messages);
+        
     // Obtener el empleado a actualizar
     $empleado = empleados::find($id);
    // return $request->all();
