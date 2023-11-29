@@ -9,9 +9,20 @@
     <button type="submit" class="btn btn-dark">Buscar</button>
 </form>
 
+
   <div class="text-center">
     <h1 class="display-4">Listado de Vacaciones</h1>
   </div>
+  <div class="bg-success p-2 text-center text-dark bg-opacity-10">
+    <strong>
+        @if(count($vacaciones) == 1)
+            1 vacación está siendo tomada
+        @else
+            {{ count($vacaciones) }} vacaciones están siendo tomadas
+        @endif
+    </strong>
+</div>
+
 
   <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listadov.pdf') }}" class="btn btn-success">Descargar PDF</a>

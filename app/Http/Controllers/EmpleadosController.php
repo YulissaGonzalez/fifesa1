@@ -214,6 +214,7 @@ class EmpleadosController extends Controller
         return redirect()->route('empleados.index')->with('error', 'Empleado not found');
     }
     }
+    
     public function destroy(string $id)
     {
         

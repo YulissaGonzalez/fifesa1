@@ -132,25 +132,27 @@ class VacacionesController extends Controller
         ], $messages);
         
 
-    // Obtener el empleado a actualizar
+    // Obtener la vacación a actualizar
     $vacacion = vacaciones::find($id);
 
+    // Verificar si la vacación existe
     if (!$vacacion) {
-        // Manejar el caso en que el empleado no se encuentra
+        // Manejar el caso en que la vacación no se encuentra
         return redirect()->route('vacaciones.index')->with('error', 'Vacacion not found');
     }
 
-    // Actualizar los datos del empleado
-       // $vacacion -> empleados_id = $request -> input('empleados_id');
-        $vacacion  -> cargo = $request -> input('cargo');
-        $vacacion  -> fecha_ingreso = $request -> input('fecha_ingreso');
-        $vacacion  -> pago_vacacional = $request -> input('pago_vacacional');
-        $vacacion  -> inicio_vacaciones = $request -> input('inicio_vacaciones');
-        $vacacion  -> regreso_vacaciones = $request -> input('regreso_vacaciones');
-        $vacacion  -> dias_vacaciones = $request -> input('dias_vacaciones');
-        
-        $vacacion->save();
+    // Actualizar los datos de la vacación
+    $vacacion->cargo = $request->input('cargo');
+    $vacacion->fecha_ingreso = $request->input('fecha_ingreso');
+    $vacacion->pago_vacacional = $request->input('pago_vacacional');
+    $vacacion->inicio_vacaciones = $request->input('inicio_vacaciones');
+    $vacacion->regreso_vacaciones = $request->input('regreso_vacaciones');
+    $vacacion->dias_vacaciones = $request->input('dias_vacaciones');
 
+    // Guardar la vacación actualizada
+    $vacacion->save();
+
+    // Redirigir después de la actualización
     return redirect()->route('vacaciones.index')->with('success', 'Vacación actualizada con éxito');
     }
 

@@ -115,12 +115,6 @@ class FiniquitosController extends Controller
 
     // Obtener el empleado a actualizar
     $finiquito = finiquitos::find($id);
-
-    if (!$finiquito) {
-        // Manejar el caso en que el empleado no se encuentra
-        return redirect()->route('finquitos.index')->with('error', 'Finiquito not found');
-    }
-
     // Actualizar los datos del empleado
         //$finiquito -> empleados_id = $request -> input('empleados_id');
         $finiquito -> monto_diario = $request -> input('monto_diario');
@@ -130,7 +124,12 @@ class FiniquitosController extends Controller
         $finiquito->save();
 
     return redirect()->route('finiquitos.index')->with('success', 'Finiquito updated successfully');
+        
+    if (!$finiquito) {
+        // Manejar el caso en que el empleado no se encuentra
+        return redirect()->route('finquitos.index')->with('error', 'Finiquito not found');
     }
+}
 
     public function destroy(string $id)
     {

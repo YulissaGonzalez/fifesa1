@@ -13,6 +13,16 @@
     <h1 class="display-4">Listado de Empleados</h1>
     </div>
 
+    <div class="bg-success p-2 text-center text-dark bg-opacity-10">
+      <strong>
+        @if(count($empleados) == 1)
+            1 empleado registrado
+        @else
+            {{ count($empleados) }} empleados registrados
+        @endif
+    </strong>
+   </div>
+
   <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listado.pdf') }}" class="btn btn-success">Descargar PDF</a>
     <a href="{{ route('empleados.status') }}" class="btn btn-success">Status</a>

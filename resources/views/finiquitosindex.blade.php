@@ -11,6 +11,15 @@
 <div class="text-center">
     <h1 class="display-4">Listado de Finiquitos</h1>
 </div>
+<div class="bg-success p-2 text-center text-dark bg-opacity-10">
+    <strong>
+      @if(count($finiquitos) == 1)
+          1 finiquito registrado
+      @else
+          {{ count($finiquitos) }} finiquitos registrados
+      @endif
+  </strong>
+ </div>
 
 <div class="d-flex justify-content-center mt-4">
     <a href="{{ route('listadof.pdf') }}" class="btn btn-success">Descargar PDF</a>
