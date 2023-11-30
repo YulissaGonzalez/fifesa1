@@ -90,12 +90,15 @@
     {!! Form::select('users_id',$users->pluck('name','id'), null, ['class' => 'form-select', 'required'=>'required', 'placeholder'=>'Elige un usuario']) !!}
 </div>
 
-<div class="form-group">
-    {{ Form::label('imagen_empleado', 'Imagen del Empleado') }}
-    {{ Form::file('imagen_empleado', ['class' => 'form-control-file'.($errors->has('imagen_empleado') ? ' is-invalid' : '')]) }}
-    @error('imagen_empleado')
-    <div class="invalid-feedback" style="color: red;">
-        {{ $message }}
-    </div>
-    @enderror
-</div>
+<div class="mb-3">
+                {{ Form::label('imagen_empleado', 'IMAGEN DEL EMPLEADO:', ['class' => 'form-label']) }}
+                @if(isset($empleado) && $empleado->imagen_empleado)
+                    <img src="{{ asset('imagen_empleado/' . $empleado->imagen_empleado) }}" alt="Imagen del empleado" style="max-width: 200px; max-height: 200px; margin-bottom: 20px;">
+                @endif
+                {{ Form::file('imagen_empleado', ['class' => 'form-control' . ($errors->has('imagen_empleado') ? ' is-invalid' : '')]) }}
+                @error('imagen_empleado')
+                    <div class="invalid-feedback" style="color: red;">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>

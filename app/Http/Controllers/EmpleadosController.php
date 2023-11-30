@@ -159,10 +159,10 @@ class EmpleadosController extends Controller
             'users_id.required' => 'El ID de usuario es obligatorio.',
             'users_id.exists' => 'El usuario seleccionado no existe.',
         
-            'imagen_empleado.required' => 'La imagen del empleado es obligatoria.',
-            'imagen_empleado.image' => 'La imagen debe ser un archivo de imagen.',
-            'imagen_empleado.mimes' => 'La imagen debe tener uno de los siguientes formatos: :values.',
-            'imagen_empleado.max' => 'La imagen no puede ser más grande que :max kilobytes.',
+            //'imagen_empleado.required' => 'La imagen del empleado es obligatoria.',
+            //'imagen_empleado.image' => 'La imagen debe ser un archivo de imagen.',
+            //'imagen_empleado.mimes' => 'La imagen debe tener uno de los siguientes formatos: :values.',
+            //'imagen_empleado.max' => 'La imagen no puede ser más grande que :max kilobytes.',
         ];
         
         $this->validate($request, [
@@ -175,7 +175,7 @@ class EmpleadosController extends Controller
             'movimiento' => 'required|string|max:255',
             'fecha_ingreso' => 'required|date',
             'users_id' => 'required|exists:users,id',
-            'imagen_empleado' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            //'imagen_empleado' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
         ], $messages);
         
     // Obtener el empleado a actualizar
