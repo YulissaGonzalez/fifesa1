@@ -103,8 +103,8 @@ class VacacionesController extends Controller
     public function update(Request $request, $id)
     {
         $messages = [
-            'empleados_id.required' => 'El ID del empleado es obligatorio.',
-            'empleados_id.exists' => 'El empleado seleccionado no existe.',
+            //'empleados_id.required' => 'El ID del empleado es obligatorio.',
+            //'empleados_id.exists' => 'El empleado seleccionado no existe.',
             
             'cargo.required' => 'El cargo es obligatorio.',
             'cargo.string' => 'El cargo debe ser una cadena de texto.',
@@ -123,7 +123,7 @@ class VacacionesController extends Controller
         ];
         
         $this->validate($request, [
-            'empleados_id' => 'required|exists:empleados,id',
+            //'empleados_id' => 'required|exists:empleados,id',
             'cargo' => 'required|string',
             'pago_vacacional' => 'required|numeric',
             'inicio_vacaciones' => 'required|date',

@@ -89,47 +89,45 @@ class FiniquitosController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        // Validación de datos
-        $messages = [
-            'empleados_id.required' => 'El ID del empleado es obligatorio.',
-            'empleados_id.exists' => 'El empleado seleccionado no existe.',
-            
-            'monto_diario.required' => 'El monto diario es obligatorio.',
-            'monto_diario.numeric' => 'El monto diario debe ser un valor numérico.',
-            
-            'dias_a_la_fecha.required' => 'La cantidad de días a la fecha es obligatoria.',
-            'dias_a_la_fecha.numeric' => 'La cantidad de días a la fecha debe ser un valor numérico.',
-            
-            'total_finiquito.required' => 'El total del finiquito es obligatorio.',
-            'total_finiquito.numeric' => 'El total del finiquito debe ser un valor numérico.',
-        ];
-        
-        $this->validate($request, [
-            'empleados_id' => 'required|exists:empleados,id',
-            'monto_diario' => 'required|numeric',
-            'dias_a_la_fecha' => 'required|numeric',
-            'total_finiquito' => 'required|numeric',
-        ], $messages);
-        
+{
+    // Validación de datos
+    $messages = [
+        //'empleados_id.required' => 'El ID del empleado es obligatorio.',
+        'empleados_id.exists' => 'El empleado seleccionado no existe.',
+        'monto_diario.required' => 'El monto diario es obligatorio.',
+        'monto_diario.numeric' => 'El monto diario debe ser un valor numérico.',
+        'dias_a_la_fecha.required' => 'La cantidad de días a la fecha es obligatoria.',
+        'dias_a_la_fecha.numeric' => 'La cantidad de días a la fecha debe ser un valor numérico.',
+        'total_finiquito.required' => 'El total del finiquito es obligatorio.',
+        'total_finiquito.numeric' => 'El total del finiquito debe ser un valor numérico.',
+    ];
 
-    // Obtener el empleado a actualizar
+    $this->validate($request, [
+        //'empleados_id' => 'required|exists:empleados,id',
+        'monto_diario' => 'required|numeric',
+        'dias_a_la_fecha' => 'required|numeric',
+        'total_finiquito' => 'required|numeric',
+    ], $messages);
+
+    // Obtener el finiquito a actualizar
     $finiquito = finiquitos::find($id);
-    // Actualizar los datos del empleado
-        //$finiquito -> empleados_id = $request -> input('empleados_id');
-        $finiquito -> monto_diario = $request -> input('monto_diario');
-        $finiquito -> dias_a_la_fecha = $request -> input('dias_a_la_fecha');
-        $finiquito -> total_finiquito = $request -> input('total_finiquito');
-        
-        $finiquito->save();
 
-    return redirect()->route('finiquitos.index')->with('success', 'Finiquito updated successfully');
-        
     if (!$finiquito) {
-        // Manejar el caso en que el empleado no se encuentra
+        // Manejar el caso en que el finiquito no se encuentra
         return redirect()->route('finquitos.index')->with('error', 'Finiquito not found');
     }
+
+    // Actualizar los datos del finiquito
+    $finiquito->monto_diario = $request->input('monto_diario');
+    $finiquito->dias_a_la_fecha = $request->input('dias_a_la_fecha');
+    $finiquito->total_finiquito = $request->input('total_finiquito');
+
+    $finiquito->save();
+
+    // Redirigir al índice de finiquitos con un mensaje de éxito
+    return redirect()->route('finiquitos.index')->with('success', 'Finiquito updated successfully');
 }
+
 
     public function destroy(string $id)
     {
