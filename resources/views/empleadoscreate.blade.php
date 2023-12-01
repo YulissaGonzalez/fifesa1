@@ -8,7 +8,7 @@
     <h1 class="text-center mt-5">Agregar Empleado</h1>
     {!! Form::open(['url' => route('empleados.store'), 'method' => 'POST', 'class' => 'mt-4', 'enctype'=>'multipart/form-data']) !!}
     {!! Form::token() !!}
-    @include('empleadosForm')
+    @include('empleadosform')
     <div class="text-center">
     {!! Form::submit('GUARDAR', ['class' => "btn btn-outline-success ml-4"]) !!}
     </div>
