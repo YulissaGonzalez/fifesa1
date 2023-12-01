@@ -10,7 +10,7 @@
     {!! Form::token() !!}
     @include('empleadosform')
     <div class="text-center">
-    {!! Form::submit('GUARDAR', ['class' => "btn btn-outline-success ml-4"]) !!}
+    {!! Form::submit('GUARDAR EMPLEADO', ['class' => "btn btn-outline-success ml-4"]) !!}
     </div>
     {!! Form::close() !!}
 </div>
