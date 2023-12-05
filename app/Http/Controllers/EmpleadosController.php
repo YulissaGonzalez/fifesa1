@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\empleados;
 use App\Models\User;
-use Barryvdh\DomPDF\Facade\pdf as PDF;
+use  PDF;
 use Laravel\Scout\Searchable;
 
 class EmpleadosController extends Controller
@@ -241,11 +241,11 @@ class EmpleadosController extends Controller
     public function pdf() {
         $empleados = empleados::all();
         $pdf = PDF::loadView('pdf.listado', compact('empleados'));
-        return $pdf->download('listado.pdf');
+        return $pdf->stream('listado.pdf');
     }
     public function pdfs() {
         $empleados = empleados::all();
         $pdf = PDF::loadView('pdf.listados', compact('empleados'));
-        return $pdf->download('listados.pdf');
+        return $pdf->stream('listados.pdf');
     }
 }

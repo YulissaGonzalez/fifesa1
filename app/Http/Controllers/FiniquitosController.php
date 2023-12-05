@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\finiquitos;
 use App\Models\empleados;
-use Barryvdh\DomPDF\Facade\pdf as PDF;
+use PDF;
 
 class FiniquitosController extends Controller
 {
     public function pdf() {
         $finiquitos = finiquitos::all();
         $pdf = PDF::loadView('pdf.listadof', compact('finiquitos'));
-        return $pdf->download('listadof.pdf');
+        return $pdf->stream('listadof.pdf');
 
     }
 

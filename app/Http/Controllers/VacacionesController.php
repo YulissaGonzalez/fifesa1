@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Models\vacaciones;
 use App\Models\empleados;
 use Laravel\Scout\Searchable;
-use Barryvdh\DomPDF\Facade\pdf as PDF;
+use PDF;
 
 class VacacionesController extends Controller
 {
     public function pdf() {
         $vacaciones = vacaciones::all();
         $pdf = PDF::loadView('pdf.listadov', compact('vacaciones'));
-        return $pdf->download('listadov.pdf');
+        return $pdf->stream('listadov.pdf');
 
     }
 
